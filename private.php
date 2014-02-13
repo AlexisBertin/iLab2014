@@ -1,118 +1,12 @@
 <?php
 session_start();
 require('auth.php');
-require('functions.php');
 
 if(Auth::islog()){
 
 	$liste = 'Mex';
 	$pseudo = $_SESSION['Auth']['pseudo'];
 
-// Ajouter une personne
-	if(!empty($_POST) && isset($_POST['addName'])){
-		$addName = $_POST['addName'];
-		$addName = trim($addName);
-		$addName = strip_tags($addName);
-		$addName = addslashes($addName);
-		$sql = "SELECT prenom FROM friends WHERE prenom = '".$addName."' AND username = '".$pseudo."' AND liste = '".$liste."'";
-		try {
-		    $req = $connexion->prepare($sql);
-		    $req->execute();
-		    $countPseudo = $req->rowCount($sql);
-		    if($countPseudo > 0){
-		    	$error_message_name = 'Vous utilisez déjà ce nom dans cette liste';
-		    } else {
-		    	$sql2 = "INSERT INTO friends (prenom, created, liste, username) VALUES ('".$addName."','".date("Y-m-d G:i:s")."','".$liste."','".$pseudo."')";
-		    	try {
-		    		$connexion->exec($sql2);
-		    		echo 'Nouveau nom bien ajouté dans la base.';
-		    	} catch(PDOException $e) {
-		    		echo 'erreur: '.$e->getMessage();
-		    	}
-		    }
-		    $_SESSION['addName'] = $addName;
-		} catch(PDOException $e) {
-		   echo 'erreur: '.$e->getMessage();
-		}
-	}
-
-
-
-
-// Ajouter liste
-	if(!empty($_POST) && isset($_POST['addListe'])){
-		$addListe = $_POST['addListe'];
-		$addListe = trim($addListe);
-		$addListe = strip_tags($addListe);
-		$addListe = addslashes($addListe);
-		$sql = "SELECT nomDeListe FROM listes WHERE nomDeListe = '".$addListe."' AND createdBy = '".$pseudo."'";
-		try {
-		    $req = $connexion->prepare($sql);
-		    $req->execute();
-		    $countListes = $req->rowCount($sql);
-		    if($countListes > 0){
-		    	$error_message_liste = 'Vous utilisez déjà ce nom de liste';
-		    } else {
-		    	$sql2 = "INSERT INTO listes (nomDeListe, createdBy, created) VALUES ('".$addListe."','".$pseudo."','".date("Y-m-d G:i:s")."')";
-		    	try {
-		    		$connexion->exec($sql2);
-		    		echo 'Nouvelle liste bien ajoutée dans la base.';
-		    	} catch(PDOException $e) {
-		    		echo 'erreur: '.$e->getMessage();
-		    	}
-		    }
-		} catch(PDOException $e) {
-		   echo 'erreur: '.$e->getMessage();
-		}
-	}
-// Ajouter Montant
-	if(!empty($_POST) && isset($_POST['addMontant']) && isset($_SESSION['addName'])){
-		$addMontant = $_POST['addMontant'];
-		$addMontant = trim($addMontant);
-		$addMontant = strip_tags($addMontant);
-		$addMontant = addslashes($addslashes);
-		$sql3 = "UPDATE friends SET montant = '".$addMontant."' WHERE prenom = '".$_SESSION['addName']."' AND username = '".$pseudo."'";
-		try { 
-			$connexion->exec($sql3);
-			echo 'Le montant a bien été mis à jour';
-		} catch(PDOException $e){
-			echo 'erreur: '.$e->getMessage();
-		}
-
-	} else if(isset($_POST['addMontant']) && !isset($_SESSION['addName'])){
-		echo 'addName ne passe pas.';
-	}
-
-
-// Ajouter Date
-	if(!empty($_POST) && isset($_POST['datepicker']) && isset($_SESSION['addName'])){
-		$addOldDate = $_POST['datepicker'];
-		/*$addOldDate = date_format($addDate, 'Y-m-d');*/
-		$addDate = date("Y-m-d", strtotime($addOldDate));
-		$sql = "UPDATE friends SET dateFin = '".$addDate."' WHERE prenom = '".$_SESSION['addName']."' AND username = '".$pseudo."'";
-		try {
-			$connexion->exec($sql);
-			echo 'Date bien modifiée';
-		} catch(PDOException $e){
-			echo 'erreur: '.$e->getMessage();
-		}
-	}
-
-
-// Ajouter Note
-	if(!empty($_POST) && isset($_POST['addNote']) && isset($_SESSION['addName'])){
-		$addNote = $_POST['addNote'];
-		$addNote = strip_tags($addNote);
-		$addNote = addslashes($addNote);
-		$sql = "UPDATE friends SET note = '".$addNote."' WHERE prenom = '".$_SESSION['addName']."' AND username = '".$pseudo."'";
-		try {
-			$req = $connexion->prepare($sql);
-			$req->execute();
-			echo 'La note/commentaire a bien été mis à jour';
-		} catch(PDOException $e){
-			echo 'erreur: '.$e->getMessage();
-		}
-	}
 
 
 	function deleteName($ligne){
@@ -151,19 +45,45 @@ if(Auth::islog()){
 
    	<!-- link href="styles.css" rel="stylesheet" -->
    	<link rel="stylesheet" href="assets/css/jquery-ui.css">
-   	<link rel="stylesheet" href="assets/css/styles.css">
+   	<!-- <link rel="stylesheet" href="assets/css/styles.css"> -->
    	
    	<script src="assets/js/jquery.js"></script>
    	<script type="text/javascript" src="assets/js/jquery-ui.js"></script>
-   	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+   	<!--<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>-->
    	
-   	<script src="assets/js/boxlayout.js"></script>
+   	<!-- <script src="assets/js/boxlayout.js"></script> -->
    	<script>
-		$(function() {
-			Boxlayout.init();
+   		$(document).ready(function(){
+			/*Boxlayout.init();*/
 			$( "#datepicker" ).datepicker();
 			$('#ui-datepicker-div').appendTo('.calendar');
-		});
+
+			$('.bl-panel-items form').on('submit', function(e){
+				e.preventDefault();
+				var addName = $('#addName').val();
+				var addMontant = $('#addMontant').val();
+				var datePicker = $('#datepicker').val();
+				var addNote = $('#addNote').val();
+				
+				console.log(addName);
+				console.log(addMontant);
+				console.log(datePicker);
+				console.log(addNote);
+				/*var ajaxData = {  }*/
+
+				/*$.ajax({
+				    url: $(this).attr('action'),
+				    type: $(this).attr('method'),
+				    data: { addName:addName, addMontant:addMontant, datepicker:datepicker, addNote:addNote },
+				    success: function(html) {
+				    	console.log(html);
+				    }
+				});*/
+				
+				return false;
+			});
+   		});
+			
   	</script>
 
 </head>
@@ -173,57 +93,57 @@ if(Auth::islog()){
 		<div id="bl-main" class="bl-main">
 			<section id="bl-work-section">
 				<div class="bl-box">
-					<h2 class="bl-icon bl-icon-works">Works</h2>
+					<h2 class="bl-icon bl-icon-works startX">On me Doit</h2>
 				</div>
 				
 				<span class="bl-icon bl-icon-close"></span>
 			</section>
 			<div class="bl-panel-items" id="bl-panel-work-items">
-				<div data-panel="panel-1" id="panel1">
+				<div class="panel1">
 					<div>
 						<h3>Qui ?</h3>
-				    	<form method="POST" action="private.php">
+				    	<form method="POST" action="functions.php" class="addNameForm" >
 				       		<label for="addName">Ajouter une personne</label>
-				    		<input type="text" name="addName" placeholder="nom de la personne" value="<?php if(isset($_POST['addName'])){ echo $_POST['addName']; } ?>" required />
+				    		<input type="text" name="addName" id="addName" placeholder="nom de la personne" value="<?php if(isset($_POST['addName'])){ echo $_POST['addName']; } ?>" required />
 				    		<input type="submit" value="Ajouter" />
 				 			<div class="error"><?php if(isset($error_message_name)){ echo $error_message_name;} ?></div>
 				    	</form>
 				    </div>
 				</div>
-				<div data-panel="panel-2">
+				<div class="panel2">
 					<div>
 						<h3>Montant</h3>
-			    		<form method="POST" action="private.php">
+			    		<form method="POST" action="functions.php" class="addMontantForm">
 			    			<label for="addMontant">Combien ?</label>
-			    			<input type="text" name="addMontant" placeholder="combien ça coute" value="<?php if(isset($_POST['addMontant'])){ echo $_POST['addMontant']; } ?>" required />
+			    			<input type="text" name="addMontant" id="addMontant" placeholder="combien ça coute" value="<?php if(isset($_POST['addMontant'])){ echo $_POST['addMontant']; } ?>" required />
 			    			<input type="submit" value="Ajouter" />
 			    			<div class="error"><?php if(isset($error_message_montant)){ echo $error_message_montant; } ?></div>
 			    		</form>
 			        </div>
 			    </div>
-			    <div data-panel="panel-3">
+			    <div class="panel3">
 			    	<div>
 						<h3>Calendrier</h3>
-						<form action="private.php" method="POST">
+						<form action="functions.php" method="POST" class="datepickerForm">
 							<div class="calendar"></div>
-							<input type="text" id="datepicker" name="datepicker" value="<?php if(isset($_POST['datepicker'])){ echo $_POST['datepicker']; } ?>" />
+							<input type="text" id="datepicker" id="datepicker" name="datepicker" value="<?php if(isset($_POST['datepicker'])){ echo $_POST['datepicker']; } ?>" />
 							<input type="submit" value="INSERT DATE">
 						</form>
 				    </div>
 				</div>
-				<div data-panel="panel-4">
+				<div class="panel4">
 					<div>
 						<h3>Note</h3>
-						<form action="private.php" method="POST">
+						<form action="functions.php" method="POST" class="addNoteForm">
 							<label for="addNote">Note</label>
-							<textarea name="addNote"></textarea>
+							<textarea name="addNote" id="addNote"></textarea>
 							<input type="submit" value="Ajouter" />
 						</form>
 				    </div>
 				</div>
-				<div data-panel="panel-5">
+				<div class="panel5">
 					<div>
-						<form method="POST" action="private.php">
+						<form method="POST" action="functions.php">
 							<select>
 							<?php
 					    		$sql = "SELECT nomDeListe FROM listes WHERE createdBy = '".$pseudo."'";
@@ -241,7 +161,7 @@ if(Auth::islog()){
 					    </form>
 				    </div>
 				</div>
-				<div data-panel="panel-6">
+				<div class="panel6">
 					<div>
 						<ul>
 						<?php
@@ -265,15 +185,15 @@ if(Auth::islog()){
 						</ul>
 				    </div>
 				</div>
-				<div data-panel="panel-2">
+				<div class="panel7">
 					<div>
 						<a href="logout.php">Se déconnecter</a>
 					</div>
 				</div>
-				<nav>
+				<!-- <nav>
 					<span class="bl-next-work">&gt; Next Project</span>
 					<span class="bl-icon bl-icon-close"></span>
-				</nav>
+				</nav> -->
 			</div>
 		</div>
 	</div>

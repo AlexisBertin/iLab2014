@@ -37,32 +37,25 @@ var Boxlayout = (function() {
 		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
 		// support css transitions
 		supportTransitions = Modernizr.csstransitions;
+	var panelX = 1;
 
 	function init() {
+
 		initEvents();
+	}
+
+	function nextPanel(){
+		var currentPanel = '.panel'+panelX;
+		$(currentPanel).addClass('bl-show-work');
+		panelX++;
 	}
 
 	function initEvents() {
 		
-		
-					
-
-		// clicking on a work item: the current section scales down and the respective work panel slides up
-		$('#bl-work-section').click( function( event ) {
-
-			// scale down main section
-			$('#bl-work-section').addClass( 'bl-hide-current-work' );
-
-			// show panel for this work item
-			/*$('#bl-panel-work-items').addClass( 'bl-panel-items-show' );*/
-
-			/*var $panel = $workPanelsContainer.find("[data-panel='" + $( this ).data( 'panel' ) + "']");
-			currentWorkPanel = $panel.index();*/
-			$('#panel1').addClass( 'bl-show-work' );
-
-			return false;
-
-		} );
+		$('#panel1').addClass( 'bl-show-work' );
+		$('.startX').click(function(){
+			nextPanel();
+		});
 
 		// navigating the work items: current work panel scales down and the next work panel slides up
 		$nextWorkItem.on( 'click', function( event ) {

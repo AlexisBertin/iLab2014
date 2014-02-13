@@ -40,6 +40,9 @@ a:hover {
 	height: 100%;
 	overflow: hidden;
 }
+#panel2 {
+	border: 1px solid rgba(255,255,255,.5);
+}
 .bl-content, 
 div.bl-panel-items > div > div {
 	opacity: 0;
@@ -153,7 +156,7 @@ div.bl-panel-items > div.bl-show-work {
 	-ms-transform: translateX(-100%);
 }
 
-div.bl-panel-items > div.bl-hide-current-work {
+.bl-hide-current-work {
 	opacity: 0;
 	-webkit-transition: -webkit-transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 	-webkit-transform: translateX(-100%) scale(0.5);
@@ -163,6 +166,7 @@ div.bl-panel-items > div.bl-hide-current-work {
 	transform: translateX(-100%) scale(0.5);
 	-ms-transform: translateX(-100%) scale(0.5);
 	z-index: 0;
+	background: yellow;
 }
 .bl-box {
 	position: relative;
