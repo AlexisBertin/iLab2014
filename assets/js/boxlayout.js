@@ -58,7 +58,13 @@ var Boxlayout = (function() {
 		});
 		$('.bl-panel-items form').on('submit', function(e){
 			e.preventDefault();
-			nextPanel();
+			if($('.bl-panel-items form').hasClass('addNameForm')){
+				console.log('C\'est bien addNameForm');
+			} else {
+				console.log('Ce n\'est pas addNameForm');
+				nextPanel();	
+			}
+			
 		});
 		// navigating the work items: current work panel scales down and the next work panel slides up
 		$nextWorkItem.on( 'click', function( event ) {

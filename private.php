@@ -53,7 +53,19 @@ if(Auth::islog()){
 			$('#ui-datepicker-div').appendTo('.calendar');
 
 			$('.bl-panel-items form').on('submit', function(e){
-				e.preventDefault();				
+				e.preventDefault();	
+				if($('.bl-panel-items form').hasClass('addNameForm')){
+					console.log('great');
+					var addName = $('#addName').val();
+					$.ajax({
+					    url: "checkName.php",
+					    type: "POST",
+					    data: { addName:addName },
+					    success: function(html) {
+					    	console.log(html);
+					    }
+					});
+				}		
 			});
 			$('.panel5 h2').click(function(){
 				var addName = $('#addName').val();

@@ -326,7 +326,7 @@ input[type=password] {
 input[type=text]:focus {
 color: 3f3f3f;
 border-style: none;
-text-transform: uppercase;}
+}
 
 input[type=submit] {
 	width: 60%;
