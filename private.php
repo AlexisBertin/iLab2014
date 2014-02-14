@@ -7,8 +7,6 @@ if(Auth::islog()){
 	$liste = 'Mex';
 	$pseudo = $_SESSION['Auth']['pseudo'];
 
-
-
 	function deleteName($ligne){
 		global $connexion;
 		$sql = "DELETE FROM friends WHERE id='".$ligne."'";
@@ -19,13 +17,9 @@ if(Auth::islog()){
 			echo 'erreur: '.$e->getMessage();
 		}
 	}
-
 	if(isset($_GET['tab']) && $_GET['del'] == true){
 		deleteName($_GET['tab']);
 	}
-
-
-
 
 
 } else {
@@ -45,42 +39,40 @@ if(Auth::islog()){
 
    	<!-- link href="styles.css" rel="stylesheet" -->
    	<link rel="stylesheet" href="assets/css/jquery-ui.css">
-   	<!-- <link rel="stylesheet" href="assets/css/styles.css"> -->
+   	<link rel="stylesheet" href="assets/css/styles.css">
    	
    	<script src="assets/js/jquery.js"></script>
    	<script type="text/javascript" src="assets/js/jquery-ui.js"></script>
-   	<!--<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>-->
+   	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
    	
-   	<!-- <script src="assets/js/boxlayout.js"></script> -->
+   	<script src="assets/js/boxlayout.js"></script>
    	<script>
    		$(document).ready(function(){
-			/*Boxlayout.init();*/
+			Boxlayout.init();
 			$( "#datepicker" ).datepicker();
 			$('#ui-datepicker-div').appendTo('.calendar');
 
 			$('.bl-panel-items form').on('submit', function(e){
-				e.preventDefault();
+				e.preventDefault();				
+			});
+			$('.panel5 h2').click(function(){
 				var addName = $('#addName').val();
 				var addMontant = $('#addMontant').val();
-				var datePicker = $('#datepicker').val();
+				var datepicker = $('#datepicker').val();
 				var addNote = $('#addNote').val();
-				
+				console.log('FinalSend');
 				console.log(addName);
 				console.log(addMontant);
-				console.log(datePicker);
+				console.log(datepicker);
 				console.log(addNote);
-				/*var ajaxData = {  }*/
-
-				/*$.ajax({
-				    url: $(this).attr('action'),
-				    type: $(this).attr('method'),
+				$.ajax({
+				    url: "functions.php",
+				    type: "POST",
 				    data: { addName:addName, addMontant:addMontant, datepicker:datepicker, addNote:addNote },
 				    success: function(html) {
 				    	console.log(html);
 				    }
-				});*/
-				
-				return false;
+				});
 			});
    		});
 			
@@ -100,7 +92,7 @@ if(Auth::islog()){
 			</section>
 			<div class="bl-panel-items" id="bl-panel-work-items">
 				<div class="panel1">
-					<div>
+					
 						<h3>Qui ?</h3>
 				    	<form method="POST" action="functions.php" class="addNameForm" >
 				       		<label for="addName">Ajouter une personne</label>
@@ -108,7 +100,7 @@ if(Auth::islog()){
 				    		<input type="submit" value="Ajouter" />
 				 			<div class="error"><?php if(isset($error_message_name)){ echo $error_message_name;} ?></div>
 				    	</form>
-				    </div>
+				    
 				</div>
 				<div class="panel2">
 					<div>
@@ -141,12 +133,19 @@ if(Auth::islog()){
 						</form>
 				    </div>
 				</div>
+
+
 				<div class="panel5">
+					<h2>Envoyer les infos</h2>
+				</div>
+
+
+				<!-- <div class="panel5">
 					<div>
 						<form method="POST" action="functions.php">
 							<select>
 							<?php
-					    		$sql = "SELECT nomDeListe FROM listes WHERE createdBy = '".$pseudo."'";
+					    		/*$sql = "SELECT nomDeListe FROM listes WHERE createdBy = '".$pseudo."'";
 					    		$req = $connexion->prepare($sql);
 					    		$req->execute();
 					    		$tableau = $req->fetchAll();
@@ -154,7 +153,7 @@ if(Auth::islog()){
 
 					    		for($i = 1; $i <= $count; $i++){
 					    			echo '<option value="'.$tableau[$i-1]['nomDeListe'].'">'.$tableau[$i-1]['nomDeListe'].'</option>';
-					    		}
+					    		}*/
 					    	?>
 					    	</select>
 					    	<input type="submit" value="Envoyer" />
@@ -165,7 +164,7 @@ if(Auth::islog()){
 					<div>
 						<ul>
 						<?php
-							$sql2 = "SELECT prenom, montant, liste, id FROM friends WHERE username = '".$pseudo."'";
+							/*$sql2 = "SELECT prenom, montant, liste, id FROM friends WHERE username = '".$pseudo."'";
 
 							$req2 = $connexion->prepare($sql2);
 							$req2->execute();
@@ -179,7 +178,7 @@ if(Auth::islog()){
 							    }
 							    echo '<a class="del" style="margin-left: 10px;" href="?tab='.$tableau[$i-1]['id'].'&del=true">X</a>';
 							    echo '</li>';
-							}
+							}*/
 
 						?>
 						</ul>
@@ -189,7 +188,7 @@ if(Auth::islog()){
 					<div>
 						<a href="logout.php">Se déconnecter</a>
 					</div>
-				</div>
+				</div> -->
 				<!-- <nav>
 					<span class="bl-next-work">&gt; Next Project</span>
 					<span class="bl-icon bl-icon-close"></span>

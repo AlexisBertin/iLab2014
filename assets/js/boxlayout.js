@@ -56,7 +56,10 @@ var Boxlayout = (function() {
 		$('.startX').click(function(){
 			nextPanel();
 		});
-
+		$('.bl-panel-items form').on('submit', function(e){
+			e.preventDefault();
+			nextPanel();
+		});
 		// navigating the work items: current work panel scales down and the next work panel slides up
 		$nextWorkItem.on( 'click', function( event ) {
 			
