@@ -84,53 +84,57 @@ if(Auth::islog()){
 	<div class="container">	
 		<div id="bl-main" class="bl-main">
 			<section id="bl-work-section">
-				<div class="bl-box">
-					<h2 class="bl-icon bl-icon-works startX">On me Doit</h2>
+				<div class="bl-box startX">
+					<img src="assets/img/add_btn.png"/>
+					<h2><span>Add</span> an account</h2>
 				</div>
 				
 				<span class="bl-icon bl-icon-close"></span>
 			</section>
 			<div class="bl-panel-items" id="bl-panel-work-items">
 				<div class="panel1">
-					
-						<h3>Qui ?</h3>
-				    	<form method="POST" action="functions.php" class="addNameForm" >
-				       		<label for="addName">Ajouter une personne</label>
-				    		<input type="text" name="addName" id="addName" placeholder="nom de la personne" value="<?php if(isset($_POST['addName'])){ echo $_POST['addName']; } ?>" required />
-				    		<input type="submit" value="Ajouter" />
-				 			<div class="error"><?php if(isset($error_message_name)){ echo $error_message_name;} ?></div>
-				    	</form>
-				    
+					<div class="back"><img src="assets/img/bck.png"/></div>
+					<h3><span>Q</span>ui ?</h3>
+				   	<form method="POST" action="functions.php" class="addNameForm owe" >
+				   		<label for="addName">Ajouter une personne</label>
+			    		<input type="text" name="addName" id="addName" placeholder="nom de la personne" value="<?php if(isset($_POST['addName'])){ echo $_POST['addName']; } ?>" required />
+			    		<input type="submit" value="Ajouter" />
+			 			<div class="error"><?php if(isset($error_message_name)){ echo $error_message_name;} ?></div>
+			    	</form>
+			    	<div class="steps">1/4</div>
 				</div>
 				<div class="panel2">
 					<div>
-						<h3>Montant</h3>
-			    		<form method="POST" action="functions.php" class="addMontantForm">
+						<h3><span>M</span>ontant</h3>
+			    		<form method="POST" action="functions.php" class="addMontantForm owe">
 			    			<label for="addMontant">Combien ?</label>
 			    			<input type="text" name="addMontant" id="addMontant" placeholder="combien ça coute" value="<?php if(isset($_POST['addMontant'])){ echo $_POST['addMontant']; } ?>" required />
 			    			<input type="submit" value="Ajouter" />
 			    			<div class="error"><?php if(isset($error_message_montant)){ echo $error_message_montant; } ?></div>
 			    		</form>
+			    		<div class="steps">2/4</div>
 			        </div>
 			    </div>
 			    <div class="panel3">
 			    	<div>
-						<h3>Calendrier</h3>
-						<form action="functions.php" method="POST" class="datepickerForm">
+						<h3><span>D</span>ate d'écheance</h3>
+						<form action="functions.php" method="POST" class="datepickerForm owe">
 							<div class="calendar"></div>
 							<input type="text" id="datepicker" id="datepicker" name="datepicker" value="<?php if(isset($_POST['datepicker'])){ echo $_POST['datepicker']; } ?>" />
 							<input type="submit" value="INSERT DATE">
 						</form>
+						<div class="steps">3/4</div>
 				    </div>
 				</div>
 				<div class="panel4">
 					<div>
-						<h3>Note</h3>
-						<form action="functions.php" method="POST" class="addNoteForm">
+						<h3><span>N</span>ote</h3>
+						<form action="functions.php" method="POST" class="addNoteForm owe">
 							<label for="addNote">Note</label>
 							<textarea name="addNote" id="addNote"></textarea>
 							<input type="submit" value="Ajouter" />
 						</form>
+						<div class="steps">4/4</div>
 				    </div>
 				</div>
 
