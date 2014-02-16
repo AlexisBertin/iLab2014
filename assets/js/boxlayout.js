@@ -44,13 +44,15 @@ var Boxlayout = (function() {
 		initEvents();
 	}
 
-	function nextPanel(){
-		var currentPanel = '.panel'+panelX;
-		$(currentPanel).addClass('bl-show-work');
-		panelX++;
-	}
+	
 
 	function initEvents() {
+		
+		function nextPanel(){
+			var currentPanel = '.panel'+panelX;
+			$(currentPanel).addClass('bl-show-work');
+			panelX++;
+		}
 		
 		$('#panel1').addClass( 'bl-show-work' );
 		$('.startX').click(function(){

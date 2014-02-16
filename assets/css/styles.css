@@ -59,7 +59,7 @@ h1 {
 	text-align: center;
 }
 
-.bl-box h2 {
+.startX h2 {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	text-align: center;
 	margin: 0;
@@ -70,7 +70,7 @@ h1 {
 	text-transform: uppercase;
 }
 
-.bl-box h2 span, h3 span{
+.startX h2 span, h3 span{
 	font-weight: 700;
 }
 
@@ -151,14 +151,6 @@ div.bl-panel-items {
 }
 
 div.bl-panel-items > div {
-	background: #fb2b69; /* Old browsers */
-		background: -moz-linear-gradient(top, #fb2b69 0%, #ff5b37 100%); /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fb2b69), color-stop(100%,#ff5b37)); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(top, #fb2b69 0%,#ff5b37 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(top, #fb2b69 0%,#ff5b37 100%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(top, #fb2b69 0%,#ff5b37 100%); /* IE10+ */
-		background: linear-gradient(to bottom, #fb2b69 0%,#ff5b37 100%); /* W3C */
-
 	z-index: 0;
 	opacity: 0;
 	-webkit-transform: translateX(0);
@@ -227,7 +219,7 @@ div.bl-panel-items > div.bl-hide-current-work {
 	z-index: 0;
 }
 
-.bl-box {
+.startX {
 	position: absolute;
 	width: 150px;
 	height: 150px;
@@ -259,7 +251,7 @@ div.bl-panel-items > div.bl-hide-current-work {
     align-items: center;
 }
 
-.bl-box img:active {
+.startX img:active {
 	 -webkit-transform: scale(0.95,0.95);
     -moz-transform: scale(0.95,0.95);
     -ms-transform: scale(0.95,0.95);
@@ -274,8 +266,6 @@ div.bl-panel-items > div.bl-hide-current-work {
 
 
 }
-
-////// bl-work-section /////
 
 h2 .bl-icon .bl-icon-works {
 	display: none;
@@ -355,7 +345,7 @@ form.connexion input[type=submit] {
 
 
 input[type=submit]:active {
-		 -webkit-transform: scale(0.95,0.95);
+	-webkit-transform: scale(0.95,0.95);
     -moz-transform: scale(0.95,0.95);
     -ms-transform: scale(0.95,0.95);
     -o-transform: scale(0.95,0.95);

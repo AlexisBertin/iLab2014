@@ -19,7 +19,7 @@ $pseudo = $_SESSION['Auth']['pseudo'];
 	    $req->execute();
 	    $countPseudo = $req->rowCount($sql);
 	    if($countPseudo > 0){
-	    	$error_message_name = 'Vous utilisez déjà ce nom dans cette liste';
+	    	echo 'Vous utilisez déjà ce prénom dans cette liste.';
 	    } else {
 	    	echo 'ok';
 	    }
