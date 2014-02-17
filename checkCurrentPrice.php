@@ -9,7 +9,7 @@
 		$req = $connexion->prepare($sql);
 		$req->execute();
 		$req->fetch();
-		print_r($req);
+		echo '<pre>'.$req.'</pre>';
 	} catch(PDOException $e) {
 		echo 'erreur: '.$e->getMessage();
 	}

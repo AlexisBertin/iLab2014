@@ -6,18 +6,10 @@ $(document).ready(function(){
 	function mainPrice(){
 		/*$('.personalCount')*/
 		$.ajax({
-			url: "scripts/checkCurrentPrice.php",
-			method: "POST",
-			data: {},
+			url: "checkCurrentPrice.php",
 			success: function(html){
-				if(html == 'ok'){
-		    		/*$('.addListeForm .error').html('');*/
-		    		$('.personalCount').html(html);
-		    		console.log(html);
-		    		/*$(".addListeForm select").val(addListe);*/
-		    	} else {
-		    		/*$('.addListeForm .error').html(html);*/
-		    	}
+		    	console.log(html);
+		    	$('.personalCount').append(html);
 			}
 		});
 	}
@@ -128,7 +120,7 @@ $(document).ready(function(){
 		if($(this).hasClass('addNameForm')){
 			console.log('addListe: '+addListeSelected);
 			$.ajax({
-			    url: "scripts/checkName.php",
+			    url: "checkName.php",
 			    type: "POST",
 			    data: { addListe:addListeSelected, addName:addName },
 			    success: function(html) {
@@ -142,7 +134,7 @@ $(document).ready(function(){
 			});
 		} else if($(this).hasClass('addListeForm')){
 			$.ajax({
-				url: "scripts/checkListe.php",
+				url: "checkListe.php",
 				type: "POST",
 				data: { addListe:addListe },
 				success: function(html){
