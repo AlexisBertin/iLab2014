@@ -10,10 +10,10 @@ $pseudo = $_SESSION['Auth']['pseudo'];
 	$addName = strip_tags($addName);
 	$addName = addslashes($addName);
 
-	$liste = 'Mex';
+	$addListe = $_POST['addListe'];
 
 	// Vérifie si le nom existe déjà
-	$sql = "SELECT prenom FROM friends WHERE prenom = '".$addName."' AND username = '".$pseudo."' AND liste = '".$liste."'";
+	$sql = "SELECT prenom FROM friends WHERE prenom = '".$addName."' AND username = '".$pseudo."' AND liste = '".$addListe."'";
 	try {
 	    $req = $connexion->prepare($sql);
 	    $req->execute();

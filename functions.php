@@ -8,6 +8,8 @@ $pseudo = $_SESSION['Auth']['pseudo'];
 	$addMontant = $_POST['addMontant'];
 	$addDate = $_POST['datepicker'];
 	$addNote = $_POST['addNote'];
+	$addListe = $_POST['addListe'];
+
 
 /*$_SESSION['datas'] = array(
 	'addName'=>$addName,
@@ -15,7 +17,7 @@ $pseudo = $_SESSION['Auth']['pseudo'];
 	'datepicker'=>$addDate,
 	'addNote'=>$addNote
 );
-*/$liste = 'Mex';
+*/
 
 /*echo '<pre>';
 print_r($_SESSION['datas']);
@@ -47,7 +49,7 @@ echo '</pre>';
 	$addNote = addslashes($addNote);
 
 	// Vérifie si le nom existe déjà
-	$sql = "SELECT prenom FROM friends WHERE prenom = '".$addName."' AND username = '".$pseudo."' AND liste = '".$liste."'";
+	$sql = "SELECT prenom FROM friends WHERE prenom = '".$addName."' AND username = '".$pseudo."' AND liste = '".$addListe."'";
 	try {
 	    $req = $connexion->prepare($sql);
 	    $req->execute();
@@ -55,11 +57,10 @@ echo '</pre>';
 	    if($countPseudo > 0){
 	    	$error_message_name = 'Vous utilisez déjà ce nom dans cette liste';
 	    } else {
-	    	$sql2 = "INSERT INTO friends (prenom, montant, created, liste, username, dateFin, note) VALUES ('".$addName."','".$addMontant."','".date("Y-m-d G:i:s")."','".$liste."','".$pseudo."','".$addDate."','".$addNote."')";
+	    	$sql2 = "INSERT INTO friends (prenom, montant, created, liste, username, dateFin, note) VALUES ('".$addName."','".$addMontant."','".date("Y-m-d G:i:s")."','".$addListe."','".$pseudo."','".$addDate."','".$addNote."')";
 	    	try {
-	    		$connexion->exec($sql2);
-	    		echo $sql2;
-	    		echo $connexion;
+	    		$req = $connexion->prepare($sql2);
+	    		$req->execute();
 	    		echo 'l\'ajout a bien été effectué';
 	    	} catch(PDOException $e) {
 	    		echo 'erreur: '.$e->getMessage();
@@ -68,9 +69,6 @@ echo '</pre>';
 	} catch(PDOException $e) {
 	   echo 'erreur: '.$e->getMessage();
 	}
-
-
-
 
 
 ?>
