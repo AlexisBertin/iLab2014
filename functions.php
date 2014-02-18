@@ -10,6 +10,8 @@ $pseudo = $_SESSION['Auth']['pseudo'];
 	$addNote = $_POST['addNote'];
 	$addListe = $_POST['addListe'];
 
+	$addName = ucfirst(strtolower($addName));
+	$addListe = ucfirst(strtolower($addListe));
 
 /*$_SESSION['datas'] = array(
 	'addName'=>$addName,

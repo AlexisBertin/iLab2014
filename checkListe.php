@@ -8,7 +8,9 @@ $pseudo = $_SESSION['Auth']['pseudo'];
 
 	$addListe = trim($addListe);
 	$addListe = strip_tags($addListe);
+	$addListe = ucfirst(strtolower($addListe));
 	$addListe = addslashes($addListe);
+
 
 	// Vérifie si la liste existe déjà
 	$sql = "SELECT nomDeListe FROM listes WHERE nomDeListe = '".$addListe."' AND createdBy = '".$pseudo."'";

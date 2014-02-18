@@ -8,8 +8,9 @@
 	try {
 		$req = $connexion->prepare($sql);
 		$req->execute();
-		$req->fetch();
-		echo '<pre>'.$req.'</pre>';
+		$result = $req->fetch(PDO::FETCH_ASSOC);
+		/*$req->fetch();*/
+		print_r($result['prix_total']);
 	} catch(PDOException $e) {
 		echo 'erreur: '.$e->getMessage();
 	}
