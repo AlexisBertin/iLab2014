@@ -2,7 +2,7 @@
 session_start();
 require('auth.php');
 
-if(Auth::islog()){
+/*if(Auth::islog()){*/
 
 	$pseudo = $_SESSION['Auth']['pseudo'];
 
@@ -202,7 +202,7 @@ if(Auth::islog()){
 
 <?php
 
-} else {
+/*} else {
 	header('Location:index.php');
-}
+}*/
 ?>
