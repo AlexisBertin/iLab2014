@@ -78,23 +78,22 @@ $(document).ready(function(){
 			case 'onMeDoitMenu': 
 				currentMenu = '.onMeDoit'; 
 				$('.bl-panel-items').addClass('onMeDoit');
-				$('.bl-panel-items h3').append(' onMeDoit');
+				/*$('.bl-panel-items h3').append(' onMeDoit');*/
 				$('.addMontantForm .addMontant').addClass('montantOnMeDoit');
 				break;
 			case 'jeDoisMenu': 
 				currentMenu = '.jeDois';
 				$('.bl-panel-items').addClass('jeDois');
-				$('.bl-panel-items h3').append(' jeDois');
+				/*$('.bl-panel-items h3').append(' jeDois');*/
 				$('.addMontantForm .addMontant').addClass('montantJeDois');
 				break;
 			case 'activitesMenu': 
 				currentMenu = '.activites';
 				$('.bl-panel-items').addClass('onMeDoit');
-				$('.bl-panel-items h3').append(' onMeDoit');
+				/*$('.bl-panel-items h3').append(' onMeDoit');*/
 				$('.addMontantForm .addMontant').addClass('montantOnMeDoit');
 				break;
 		}
-
 		$('.addChoice').removeClass('visible');
 		nextPanel(currentMenu);
 	});
@@ -123,7 +122,7 @@ $(document).ready(function(){
 			}, 500);
 			$('.addChoice').addClass( 'bl-show-work' );
 			var currentMenu;
-			var addChoiceSelect = $(this).parent().parent().attr('class');
+			var addChoiceSelect = $(this).parent().parent().parent().attr('class');
 			switch(addChoiceSelect){
 				case 'bl-panel-items onMeDoit': currentMenu = '.onMeDoit'; break;
 				case 'bl-panel-items jeDois': currentMenu = '.jeDois'; break;
@@ -141,7 +140,7 @@ $(document).ready(function(){
 
 	$('.back').click(function(e){
 		var currentMenu;
-		var addChoiceSelect = $(this).parent().parent().attr('class');
+		var addChoiceSelect = $(this).parent().parent().parent().attr('class');
 		console.log(addChoiceSelect);
 		switch(addChoiceSelect){
 			case 'bl-panel-items onMeDoit': currentMenu = '.onMeDoit'; break;
@@ -149,7 +148,7 @@ $(document).ready(function(){
 			case 'bl-panel-items activites': currentMenu = '.activites'; break;
 		}
 
-		var thisPanel = $(this).parent().removeClass('bl-show-work').attr('class').substr(5,1);
+		var thisPanel = $(this).parent().parent().removeClass('bl-show-work').attr('class').substr(5,1);
 		
 		$(currentMenu+' .panel'+(thisPanel-1)).removeClass('bl-hide-current-work').addClass('bl-show-work');
 		$(currentMenu+' .panel'+(thisPanel-2)).addClass('bl-hide-current-work');
