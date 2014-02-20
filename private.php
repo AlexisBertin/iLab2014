@@ -6,7 +6,7 @@ if(Auth::islog()){
 
 	$pseudo = $_SESSION['Auth']['pseudo'];
 
-	function deleteName($ligne){
+/*	function deleteName($ligne){
 		global $connexion;
 		$sql = "DELETE FROM friends WHERE id='".$ligne."'";
 		try {
@@ -18,48 +18,18 @@ if(Auth::islog()){
 	}
 	if(isset($_GET['tab']) && $_GET['del'] == true){
 		deleteName($_GET['tab']);
-	}
+	}*/
 
-?>
-<!DOCTYPE html>
-<html lang="fr" class="no-js">
-<head>
-   	<title>PHP | Membres</title>
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-   	<meta name="author" content="Alexis Bertin" />
-   	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-   	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="default">
-
-   	<!-- link href="styles.css" rel="stylesheet" -->
-   	<link rel="stylesheet" href="assets/css/jquery-ui.css">
-   	<link rel="stylesheet" href="assets/css/styles.css">
-   	<link rel="stylesheet" href="assets/fonts/css/font-awesome.css">
-   	
-   	<script type="text/javascript" src="assets/js/jquery.js"></script>
-   	<script type="text/javascript" src="assets/js/jquery-ui.js"></script>
-   	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
-   	
-   	<script type="text/javascript" src="assets/js/hammerjs/hammer.js"></script>
-	<script type="text/javascript" src="assets/js/hammerjs/jquery.hammer-standalone.min.js"></script>
-	<script type="text/javascript" src="assets/js/main.js"></script>
-
-</head>
-<body>
-		
-	<div class="container">	
+?>		
+	
 		<div id="bl-main" class="bl-main">
 			<section id="bl-work-section">
-				<div id= "header">
-           			<a href="menu.php"><img src="assets/img/burger_black.png"/></a>
-           			<h1><a href="index.php" src="logo.png" ><span>Owe</span>me</a></h1>
-           		</div> <!-- à mettre au-dessus du container pour fix -->
 				<div class="startX">
 					<img src="assets/img/add_btn.png"/>
 					<h2><span>Add</span> an account</h2>
-					<div class="personalCount"></div>	
+						
 				</div> <!-- end bl-box startX -->
+				<div class="personalCount"></div>
 				<span class="bl-icon bl-icon-close"></span>
 			</section> <!-- end bl-work-section -->
 			<div class="addChoice">
@@ -82,28 +52,31 @@ if(Auth::islog()){
            			<div class="quest_form">
 			    		<div class="back"><img src="assets/img/bck.png"/></div>
 						<h3><span>L</span>iste</h3>
-						<form action="functions.php" method="POST" class="addListeForm">
-							<select>
-								<?php
-						    		$sql = "SELECT nomDeListe FROM listes WHERE createdBy = '".$pseudo."'";
-						    		try {
-						    			$req = $connexion->prepare($sql);
-						    			$req->execute();
-						    			$tableau = $req->fetchAll();
-						    			$count = $req->rowCount();
-						    		} catch(PDOException $e){
-						    			echo 'erreur '.$e->getMessage();
-						    		}
-						    		for($i = 1; $i <= $count; $i++){
-						    			echo '<option value="'.$tableau[$i-1]['nomDeListe'].'">'.$tableau[$i-1]['nomDeListe'].'</option>';
-						    		}
-						    	?>
-						    </select>
+						<form action="functions.php" method="POST" class="addListeForm owe">
+							<div class="select">
+								<!-- <p>Choose</p> -->
+								<select>
+									<?php
+							    		$sql = "SELECT nomDeListe FROM listes WHERE createdBy = '".$pseudo."'";
+							    		try {
+							    			$req = $connexion->prepare($sql);
+							    			$req->execute();
+							    			$tableau = $req->fetchAll();
+							    			$count = $req->rowCount();
+							    		} catch(PDOException $e){
+							    			echo 'erreur '.$e->getMessage();
+							    		}
+							    		for($i = 1; $i <= $count; $i++){
+							    			echo '<option value="'.$tableau[$i-1]['nomDeListe'].'">'.$tableau[$i-1]['nomDeListe'].'</option>';
+							    		}
+							    	?>
+							    </select>
+							</div>
 						<input type="text" class="addListe" name="addListe" placeholder="Ajouter une nouvelle liste" value="<?php if(isset($_POST['addListe'])){ echo $_POST['addListe']; } ?>" required />
 						<div class="error" style="font-style: bold; color: red;"></div>
 						<input type="submit" value="Ajouter cette liste">
 					</form>
-					<div class="nextStep">Étape suivante</div>
+					<div class="nextStep">Next</div>
 					<div class="steps">2/6</div>
 				  </div> <!-- end quest_form -->
 			    </div> <!-- end panel1 -->
@@ -112,8 +85,8 @@ if(Auth::islog()){
 					<div class="quest_form">
 						<div class="back"><img src="assets/img/bck.png"/></div>
 							<h3><span>W</span>ho ?</h3>
-					   	<form class="owe" method="POST" action="functions.php" class="addNameForm" >
-				    		<input type="text" name="addName" class="addName" placeholder="NOM" value="<?php if(isset($_POST['addName'])){ echo $_POST['addName']; } ?>" required />
+					   	<form class="owe" method="POST" action="functions.php" class="addNameForm owe" >
+				    		<input type="text" name="addName" class="addName" placeholder="Name" value="<?php if(isset($_POST['addName'])){ echo $_POST['addName']; } ?>" required />
 				    		<div class="error" style="font-style: bold; color: red;"></div>
 				    		<input type="submit" value="Next" />
 				    	</form>
@@ -124,7 +97,7 @@ if(Auth::islog()){
 					<div class = "quest_form">
 						<div class="back"><img src="assets/img/bck.png"/></div>
 							<h3><span>A</span>mount</h3>
-			    		<form method="POST" action="functions.php" class="addMontantForm">
+			    		<form method="POST" action="functions.php" class="addMontantForm owe">
 			    			<input type="number" name="addMontant" class="addMontant" placeholder="Amount" value="<?php if(isset($_POST['addMontant'])){ echo $_POST['addMontant']; } ?>" required />
 			    			<input type="submit" value="Next"/>
 			    			<div class="error"><?php if(isset($error_message_montant)){ echo $error_message_montant; } ?></div>
@@ -135,8 +108,8 @@ if(Auth::islog()){
 			    <div class="panel4">
 			    	<div class = "quest_form">
 			    		<div class="back"><img src="assets/img/bck.png"/></div>
-							<h3><span>E</span>cheance</h3>
-						<form action="functions.php" method="POST" class="datepickerForm">
+							<h3><span>Due</span> date</h3>
+						<form action="functions.php" method="POST" class="datepickerForm owe">
 							<div class="calendar"></div>
 							<input type="text" class="datepicker" name="datepicker" placeholder="" value="<?php if(isset($_POST['datepicker'])){ echo $_POST['datepicker']; } ?>" />
 							<input type="submit" value="Next">
@@ -151,7 +124,7 @@ if(Auth::islog()){
 							<h3><span>N</span>ote</h3>
 						<div class="line"></div>
 						<div class="line"></div>
-						<form action="functions.php" method="POST" class="addNoteForm">
+						<form action="functions.php" method="POST" class="addNoteForm owe">
 							<textarea name="addNote" class="addNote"></textarea>
 							<input type="submit" value="Next" />
 							<a class="pass" href="">Pass</a>
@@ -163,85 +136,31 @@ if(Auth::islog()){
 
 				<div class="panel6">
 					<div class="back"><img src="assets/img/bck.png"/></div>
-					<h2>Récupitulatif</h2>
-					<div class="recap"></div>
-					<button type="button">Enregistrer</button>
-				</div>
-
-				<div class="panel7">
-					<div class='success'></div>
-					<div class='btBackStart'>Retour à l'accueil</div>
-				</div>
-
-</div> <!-- bl-panel-items onMeDoit -->
-
-
-				<!-- <div class="panel5">
-					<div>
-						<form method="POST" action="functions.php">
-							<select>
-							<?php
-					    		/*$sql = "SELECT nomDeListe FROM listes WHERE createdBy = '".$pseudo."'";
-					    		$req = $connexion->prepare($sql);
-					    		$req->execute();
-					    		$tableau = $req->fetchAll();
-					    		$count = $req->rowCount();
-
-					    		for($i = 1; $i <= $count; $i++){
-					    			echo '<option value="'.$tableau[$i-1]['nomDeListe'].'">'.$tableau[$i-1]['nomDeListe'].'</option>';
-					    		}*/
-					    	?>
-					    	</select>
-					    	<input type="submit" value="Envoyer" />
-					    </form>
-				    </div>
-				</div>
-				<div class="panel6">
-					<div>
-						<ul>
-						<?php
-							/*$sql2 = "SELECT prenom, montant, liste, id FROM friends WHERE username = '".$pseudo."'";
-
-							$req2 = $connexion->prepare($sql2);
-							$req2->execute();
-							$tableau = $req2->fetchAll();
-							$count = $req2->rowCount();
-
-							for ($i = 1; $i <= $count; $i++) {
-							    echo '<li>';
-							    for($x = 0; $x <= 2; $x++){
-							    	echo '<span class="case">'.$tableau[$i-1][$x].'</span>';
-							    }
-							    echo '<a class="del" style="margin-left: 10px;" href="?tab='.$tableau[$i-1]['id'].'&del=true">X</a>';
-							    echo '</li>';
-							}*/
-
-						?>
-						</ul>
-				    </div>
-				</div>
-				<div class="panel7">
-					<div>
-						<a href="logout.php">Se déconnecter</a>
+					<h2>Summary</h2>
+					<div class="contentRecup">
+						<div class="recap"></div>
+						<button type="button">Save</button>
 					</div>
-				</div> -->
-				<!-- <nav>
-					<span class="bl-next-work">&gt; Next Project</span>
-					<span class="bl-icon bl-icon-close"></span>
-				</nav> -->
-			</div> <!-- end bl-panel-items -->
-		</div> <!-- end bl-main -->
-	</div>
+				</div>
+
+				<div class="panel7">
+					<div class = "quest_form">
+						<div class='success'></div>
+						<div class='btBackStart'><i class="fa fa-home"> Homepage</i></div>
+					</div>
+				</div>
+
+			</div>
+
+
+		</div> 	
+
+	<script type="text/javascript" src="assets/js/private.js"></script>
 	
 
-	    	
-	    	
-	
-</body>
-</html> 
-<?php
-
-} else {
-	header('Location:index.php');
-}
+<?php } else { ?>
+	<script type="text/javascript">
+		$('.container').html('');
+	</script>
+<?php }
 ?>

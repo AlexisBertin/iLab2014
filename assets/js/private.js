@@ -1,8 +1,6 @@
 $(document).ready(function(){
 	$( ".datepicker" ).datepicker();
 	$('#ui-datepicker-div').appendTo('.calendar');
-
-
 	function mainPrice(){
 		/*$('.personalCount')*/
 		$.ajax({
@@ -21,6 +19,7 @@ $(document).ready(function(){
 
 	function menuPanel(){
 		$('.startX').css({'opacity':'0'}, function(e){ $(this).css({'display':'none'}); });
+		$('.personalCount').css({'opacity':'0'}, function(e){ $(this).css({'display':'none'}); });
 		$('.addChoice').addClass( 'visible' );
 	}
 
@@ -34,6 +33,7 @@ $(document).ready(function(){
 		$(currentMenu+" "+prepreviousPanel).removeClass('bl-hide-current-work');
 		$(currentMenu+" "+previousPanel).removeClass('bl-show-work').addClass('bl-hide-current-work');
 		$(currentMenu+" "+currentPanel).addClass('bl-show-work');
+
 	}
 	function ajaxPost(){
 		var addListe = $('.addListeForm select').find(":selected").text();
@@ -108,6 +108,8 @@ $(document).ready(function(){
 				elem.removeClass("noClick"); 
 			}, 500);
 			$('.startX').css({'opacity':'0'}, function(e){ $(this).css({'display':'none'}); });
+			$('.personalCount').css({'opacity':'0'}, function(e){ $(this).css({'display':'none'}); });
+			
 			menuPanel();
 		}
 	});
@@ -149,11 +151,11 @@ $(document).ready(function(){
 		}
 
 		var thisPanel = $(this).parent().parent().removeClass('bl-show-work').attr('class').substr(5,1);
-		
+		console.log('panel: '+thisPanel);
 		$(currentMenu+' .panel'+(thisPanel-1)).removeClass('bl-hide-current-work').addClass('bl-show-work');
 		$(currentMenu+' .panel'+(thisPanel-2)).addClass('bl-hide-current-work');
 		if((thisPanel-1) < -1){ thisPanel = 0 };
-		panelX = thisPanel-1;
+		panelX = thisPanel - 1;
 		if(panelX == 0){
 			/*$('.startX').css({'opacity':'1'});*/
 			$('.addChoice').addClass('visible');
@@ -196,7 +198,9 @@ $(document).ready(function(){
 		} else {
 			nextPanel(currentMenu);	
 		}
-		$('.recap').html("<table><tr><td>Liste</td><td>"+addListeSelected+"</td></tr><tr><td>Prenom</td><td>"+addName+"</td><tr><td>Montant</td><td>"+addMontant+"</td><tr><td>Date Échéance</td><td>"+datepicker+"</td><tr><td>Note</td><td>"+addNote+"</td></table>");
+		/*$('.recap').html('<table class="tableRecap"><tr><td>Liste</td><td>'+addListeSelected+'</td></tr><tr><td>Prenom</td><td>'+addName+'</td><tr><td>Montant</td><td>'+addMontant+'</td><tr><td>Date Échéance</td><td>'+datepicker+'</td><tr><td>Note</td><td>'+addNote+'</td></table>');
+*/
+		$('.recap').html('<div class="contentRecup"><table class="user"><tr><td class="user">'+addName+'</td></tr><tr><td class="UserMontantTotal">'+addMontant+'€</td></tr><tr class="recupInfos"><td class="liste nom">'+addListeSelected+' list</br><i class="fa fa-exclamation-triangle"><span class="returnDate"> '+datepicker+'</span></i></td><td class="note">'+addNote+'</td></table></div>');
 	});
 
 
@@ -207,13 +211,16 @@ $(document).ready(function(){
 		$('.panel6').removeClass('bl-hide-current-work');
 		$('.panel7').addClass('bl-hide-current-work').removeClass('bl-show-work').delay(200).removeClass('bl-hide-current-work');
 		$('.startX').css({'opacity':'1'}, function(e){ $(this).css({'display':'block'}); });
+		$('.personalCount').css({'opacity':'1'}, function(e){ $(this).css({'display':'block'}); });
 		$('.bl-panel-items').removeClass('onMeDoit').removeClass('jeDois');
 		/*$('.bl-panel-items h3').append(' onMeDoit');*/
 		$('.addMontantForm .addMontant').removeClass('montantOnMeDoit').removeClass('montantJeDois');
 		$('.addName, .addMontant, .datepicker, .addNote').removeAttr('value');
 		panelX = 0;
 	});
+/*
 
+$('.recap').html('<table class="recapTableau"><tr><td>Liste</td><td>'+addListeSelected+'</td></tr><tr><td>Prenom</td><td>'+addName+'</td><tr><td>Montant</td><td>'+addMontant+'</td><tr><td>Date Échéance</td><td>'+datepicker+'</td><tr><td>Note</td><td>'+addNote+'</td></table>');*/
 
 
 
