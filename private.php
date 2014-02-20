@@ -51,7 +51,7 @@ if(Auth::islog()){
 				<div class="panel1">
            			<div class="quest_form">
 			    		<div class="back"><img src="assets/img/bck.png"/></div>
-						<h3><span>L</span>iste</h3>
+						<h3><span>L</span>ist</h3>
 						<form action="functions.php" method="POST" class="addListeForm owe">
 							<div class="select">
 								<!-- <p>Choose</p> -->
@@ -72,9 +72,9 @@ if(Auth::islog()){
 							    	?>
 							    </select>
 							</div>
-						<input type="text" class="addListe" name="addListe" placeholder="Ajouter une nouvelle liste" value="<?php if(isset($_POST['addListe'])){ echo $_POST['addListe']; } ?>" required />
+						<input type="text" class="addListe" name="addListe" placeholder="Add a new list" value="<?php if(isset($_POST['addListe'])){ echo $_POST['addListe']; } ?>" required />
 						<div class="error" style="font-style: bold; color: red;"></div>
-						<input type="submit" value="Ajouter cette liste">
+						<input type="submit" value="Add">
 					</form>
 					<div class="nextStep">Next</div>
 					<div class="steps">2/6</div>
@@ -111,9 +111,9 @@ if(Auth::islog()){
 							<h3><span>Due</span> date</h3>
 						<form action="functions.php" method="POST" class="datepickerForm owe">
 							<div class="calendar"></div>
-							<input type="text" class="datepicker" name="datepicker" placeholder="" value="<?php if(isset($_POST['datepicker'])){ echo $_POST['datepicker']; } ?>" />
+							<input type="date" class="datepicker" name="datepicker" placeholder="" value="<?php if(isset($_POST['datepicker'])){ echo $_POST['datepicker']; } ?>" />
 							<input type="submit" value="Next">
-							<!-- <a href>Pass</a> -->
+							<a class="pass" href="">Pass</a>
 						</form>
 						<div class="steps">5/6</div>
 				    </div> <!-- end quest_form -->

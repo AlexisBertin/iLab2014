@@ -1,6 +1,6 @@
 $(document).ready(function(){
-	$( ".datepicker" ).datepicker();
-	$('#ui-datepicker-div').appendTo('.calendar');
+	/*$( ".datepicker" ).datepicker();
+	$('#ui-datepicker-div').appendTo('.calendar');*/
 	function mainPrice(){
 		/*$('.personalCount')*/
 		$.ajax({
