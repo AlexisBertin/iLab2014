@@ -7,7 +7,7 @@ $(document).ready(function(){
 			url: "checkCurrentPrice.php",
 			success: function(html){
 		    	console.log(html);
-		    	$('.personalCount').html(html+" €");
+		    	$('.personalCount').html(html);
 			}
 		});
 	}
@@ -18,9 +18,14 @@ $(document).ready(function(){
 	var panelX = 0;
 
 	function menuPanel(){
-		$('.startX').css({'opacity':'0'}, function(e){ $(this).css({'display':'none'}); });
-		$('.personalCount').css({'opacity':'0'}, function(e){ $(this).css({'display':'none'}); });
-		$('.addChoice').addClass( 'visible' );
+		$('.startX').css({'opacity':'0'}); 
+		$().css({'opacity':'0'});
+		$('.addChoice').css({'display':'block'});
+		setTimeout(function() {
+			$('.startX').css({'display':'none'});
+			$('.personalCount').css({'display':'none'});
+			$('.addChoice').addClass( 'visible' );
+		}, 400);   
 	}
 
 	function nextPanel(e){
@@ -95,6 +100,10 @@ $(document).ready(function(){
 				break;
 		}
 		$('.addChoice').removeClass('visible');
+		setTimeout(function() {
+			$('.addChoice').css({'display':'none'});
+		}, 400);   
+		
 		nextPanel(currentMenu);
 	});
 
@@ -107,10 +116,15 @@ $(document).ready(function(){
 			setTimeout(function() {
 				elem.removeClass("noClick"); 
 			}, 500);
-			$('.startX').css({'opacity':'0'}, function(e){ $(this).css({'display':'none'}); });
-			$('.personalCount').css({'opacity':'0'}, function(e){ $(this).css({'display':'none'}); });
-			
-			menuPanel();
+			$('.startX').css({'opacity':'0'});
+			$('.personalCount').css({'opacity':'0'});
+
+			setTimeout(function() {
+				$('.startX').css({'display':'none'});
+				$('.personalCount').css({'display':'none'});
+			}, 400); 
+			panelX = 0;
+			menuPanel(panelX);
 		}
 	});
 	$('.nextStep').click(function(e){
@@ -158,10 +172,26 @@ $(document).ready(function(){
 		panelX = thisPanel - 1;
 		if(panelX == 0){
 			/*$('.startX').css({'opacity':'1'});*/
-			$('.addChoice').addClass('visible');
+			$('.addChoice').css({'display':'block'});
+			setTimeout(function() {
+				$('.addChoice').addClass('visible');
+			}, 400);   
+			
 			$('.bl-panel-items').removeClass('onMeDoit').removeClass('jeDois');
 			/*$('.bl-panel-items h3').append(' onMeDoit');*/
 			$('.addMontantForm .addMontant').removeClass('montantOnMeDoit').removeClass('montantJeDois');
+		} if(panelX < 0){
+				$('.addChoice').removeClass('visible');
+			setTimeout(function() {
+				$('.addChoice').css({'display':'none'});
+			}, 400);   
+
+			$('.startX').css({'opacity':'1'});
+			$('.personalCount').css({'opacity':'1'});
+			setTimeout(function() {
+				$('.startX').css({'display':'block'});
+				$('.personalCount').css({'display':'block'});
+			}, 400); 
 		}
 	});
 
@@ -200,8 +230,11 @@ $(document).ready(function(){
 		}
 		/*$('.recap').html('<table class="tableRecap"><tr><td>Liste</td><td>'+addListeSelected+'</td></tr><tr><td>Prenom</td><td>'+addName+'</td><tr><td>Montant</td><td>'+addMontant+'</td><tr><td>Date Échéance</td><td>'+datepicker+'</td><tr><td>Note</td><td>'+addNote+'</td></table>');
 */
-		$('.recap').html('<div class="contentRecup"><table class="user"><tr><td class="user">'+addName+'</td></tr><tr><td class="UserMontantTotal">'+addMontant+'€</td></tr><tr class="recupInfos"><td class="liste nom">'+addListeSelected+' list</br><i class="fa fa-exclamation-triangle"><span class="returnDate"> '+datepicker+'</span></i></td><td class="note">'+addNote+'</td></table></div>');
+		/*$('.recap').html('<table class="user"><tr><td class="user">'+addName+'</td></tr><tr><td class="UserMontantTotal">'+addMontant+'€</td></tr><tr class="recupInfos"><td class="liste nom">'+addListeSelected+' list</br><i class="fa fa-exclamation-triangle"><span class="returnDate"> '+datepicker+'</span></i></td><td class="note">'+addNote+'</td></table>');*/
+
+		$('.recap').html('<ul class="listeContentRecup"><li>'+addName+'</li><li><span>+</span>'+addMontant+'€</li><li><span>List:</span> '+addListeSelected+'</li><li><span>Callback Date:</span> '+datepicker+'</li><li><span>Note:</span> <p>'+addNote+'</p></li></ul>');
 	});
+
 
 
 	$('.panel6 button').click(function(e){
@@ -210,8 +243,14 @@ $(document).ready(function(){
 	$('.btBackStart').click(function(){
 		$('.panel6').removeClass('bl-hide-current-work');
 		$('.panel7').addClass('bl-hide-current-work').removeClass('bl-show-work').delay(200).removeClass('bl-hide-current-work');
-		$('.startX').css({'opacity':'1'}, function(e){ $(this).css({'display':'block'}); });
-		$('.personalCount').css({'opacity':'1'}, function(e){ $(this).css({'display':'block'}); });
+
+		$('.startX').css({'opacity':'1'});
+		$('.personalCount').css({'opacity':'1'});
+		setTimeout(function() {
+			$('.startX').css({'display':'block'});
+			$('.personalCount').css({'display':'block'});
+		}, 400); 
+
 		$('.bl-panel-items').removeClass('onMeDoit').removeClass('jeDois');
 		/*$('.bl-panel-items h3').append(' onMeDoit');*/
 		$('.addMontantForm .addMontant').removeClass('montantOnMeDoit').removeClass('montantJeDois');

@@ -1,0 +1,7 @@
+CACHE MANIFEST
+local1.file
+local2.file
+
+NETWORK:
+network1.php
+network2.cgi

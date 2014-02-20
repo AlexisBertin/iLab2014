@@ -33,7 +33,7 @@ body, html { font-size: 100%; padding: 0; margin: 0; height: 100%; width: 100%;}
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-@media (max-width: 500px) {
+@media (max-width: 568px) {
 
 body {
     font-family: 'Lato', Calibri, Arial, sans-serif;
@@ -169,18 +169,16 @@ div.bl-panel-items,
 div.bl-panel-items > div,
 div.content_connexion,
 div.content_menu,
-div.content_add,
-div.contentRecup
+div.content_add
+
  {
 	width: 100%;
-	margin-top: 60px;
+	margin-top: 40px;
 	top: 0;
 	left: 0;
 	position: absolute;
 }
-div.contentRecup {
-	height: 100%;
-}
+
 
 
 div.bl-panel-items > div > div,
@@ -538,8 +536,10 @@ textarea {
 	font-weight: 100;
 	color: #3d3d3d;
 	padding: 10px;
+	margin-bottom: 15px;
 	border-radius: 3px;
 	-webkit-appearance: button;
+	outline: 0;
 }
 
 
@@ -709,18 +709,18 @@ a.pass:active,
 
 div.line {
 	width: 76%;
-	height: 31px;
-	top: 31.5%;
+	height: 35px;
+	margin-top: 29px;
 	left: 11.2%;
 	position: absolute;
-	border-bottom: 2px solid black;
-	border-top: 2px solid black;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
 	opacity: .05
 }
 
 div.line:nth-child(3){
 	border-top: none;
-	top:40%;
+	margin-top: 62px;
 }
 
 /*////// MENU */
@@ -818,6 +818,7 @@ div.addChoice {
 	transform: translateX(100%);
 	transition: transform 0.5s ease-in-out, opacity 0s linear 0.5s;
 	-ms-transform: translateX(100%);
+	display: none;
 }
 .visible {
 	z-index: 1000 !important;
@@ -861,8 +862,7 @@ position: absolute;
 	padding:43px 20px 0px 20px;
 }
 
-table,
-.contentRecup {
+table {
 	color: #3d3d3d;
 	width: 100%;
 	background-color: #fff;
@@ -871,19 +871,12 @@ table,
 
 
 
-tr,
-.contentRecup ul {
+tr {
 	width: 100%;
 	display: block;
 	margin-top: 0px;
 	padding-left: 0px;
 	margin-bottom: 0px; 
-}
-
-tr.recupInfos,
-ul.recupInfos {
-	border-bottom: 1px solid rgba(0,0,0,.05);
-	height: 70px;
 }
 
 td.nom,
@@ -933,7 +926,7 @@ li span {
 	font-weight: bold;
 }
 td.montantTotal,
-li.montantTotal{
+{
 display: block;
 font-size: 6em;
 text-align: right;
@@ -944,10 +937,6 @@ border-bottom: 1px solid rgba(0,0,0,.05);
 padding: 0px 20px;
 } 
 
-li {
-	text-decoration: none;
-	list-style: none;
-}
 
 /*//// TEST */
 /*div.bl-panel-items {
@@ -960,7 +949,7 @@ li {
 
 /*/// JOHN */
 
-td.user {
+/*td.user {
 	font-size: 2em;
 	text-transform: uppercase;
 	color: rgba(0,0,0,.5);
@@ -1005,7 +994,66 @@ table.user td.montant {
 	padding:0px 20px 0px 0px;
 	text-align: right;
 	width: 95px;
+}*/
+
+.contentRecup {
+    top: 35px;
+    width: 83%;
+    margin: 0 auto 20px auto;
+    opacity: 1;
+    position: relative;
+    pointer-events: auto;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    overflow-x: visible !important;
+    height: 100%;
+    color: #3d3d3d;
 }
+ul.listeContentRecup {
+    list-style: none;
+    margin: 0;
+    
+    padding: 0;
+}   
+    ul.listeContentRecup li {
+        font-weight: 100;
+        padding: 5px 10px;
+    }
+    ul.listeContentRecup li:first-child {
+        font-size: 2em;
+        text-transform: uppercase;
+        text-align: center;
+        padding-top: 15px; 
+    }
+    ul.listeContentRecup li:nth-child(2){
+        text-align: center;
+        margin: -10px 0px 0px 0px;
+        font-size: 4em;
+        padding-bottom: 20px;
+        color: #007aff;
+        border-bottom: 1px solid rgba(110, 110, 110, 0.1);
+    }
+        ul.listeContentRecup li:nth-child(2) span { font-size: 24px !important; font-weight: 100; }
+    ul.listeContentRecup li:nth-child(3) { text-align: center; }
+    ul.listeContentRecup li:nth-child(3), ul.listeContentRecup li:nth-child(4){
+        /*padding-top: 10px;*/
+        padding: 15px;
+        font-size: 1.5em;
+        border-bottom: 1px solid rgba(110, 110, 110, 0.1);
+    }  
+        ul.listeContentRecup li:nth-child(3) span,
+        ul.listeContentRecup li:nth-child(4) span,
+        ul.listeContentRecup li:nth-child(5) span { font-size: 18px !important; color: #aaaaaa; font-weight: 100;}
+    ul.listeContentRecup li:nth-child(5) {
+        padding: 15px;
+        font-size: 16px;
+        color: #000;
+        line-height: 28px;
+        margin-bottom: 0px;
+    }  
+        ul.listeContentRecup li:nth-child(5) p { margin: 10px 0 0 0; }
+
 
 /*/// Add List */
 
@@ -1034,6 +1082,7 @@ input[type=date] {
 	-webkit-appearance: none;
 	 -moz-appearance: none;
 	 appearance: none;
+	 outline: 0;
 
 }
 
@@ -1068,12 +1117,15 @@ outline: blue;
 .nextStep {
 border-bottom: 1px solid #007aff;
 color: #007aff;
-margin-left: 43%;
 width: 32px;
 height: 22px;
 padding-bottom: 2px;
-position: absolute;
 bottom: 43px;
+position:absolute;
+left: 0;
+right: 0;
+margin: auto;
+cursor: pointer;
 }
 
 
@@ -1134,6 +1186,7 @@ div.bl-panel-items > div > div.contentRecup {
 
 button[type=button] {
 	margin: 20px 20%;
+	outline: 0;
 }
 
 /*// Panel 7 */

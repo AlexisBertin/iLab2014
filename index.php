@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="fr" class="no-js">
 <head>
-   <title>PHP | Membres</title>
+   <title>OweMe</title>
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
    <title></title>
@@ -19,6 +19,7 @@
    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/img/touch/apple-touch-icon-72x72-precomposed.png">
    <link rel="apple-touch-icon-precomposed" href="assets/img/touch/apple-touch-icon-57x57-precomposed.png">
    <link rel="shortcut icon" href="assets/img/touch/apple-touch-icon.png">
+   <link rel="apple-touch-startup-image"href="./startup.png" />
 
    <!-- Tile icon for Win8 (144x144 + tile color) -->
    <meta name="msapplication-TileImage" content="assets/img/touch/apple-touch-icon-144x144-precomposed.png">
@@ -51,7 +52,7 @@
    <script type="text/javascript" src="assets/js/hammerjs/jquery.hammer-standalone.min.js"></script>
    
 </head>
-<body class="bodyIndex">
+<body ontouchmove="BlockMove(event);">
 
    <div id= "header">
       <img src="assets/img/burger_black.png"/>
@@ -118,7 +119,9 @@
 </html> 
 
 
-<?php session_start();
+<?php
+
+session_start();
 require('auth.php'); 
 
 if(Auth::islog()){

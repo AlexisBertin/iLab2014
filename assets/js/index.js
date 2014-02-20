@@ -1,3 +1,11 @@
+window.addEventListener("load",function() {
+  // Set a timeout...
+  setTimeout(function(){
+     // Hide the address bar!
+     window.scrollTo(0, 1);
+  }, 0);
+});
+
 $(document).ready(function(){
    // Menu
    $('#header').click(function(){
@@ -15,6 +23,11 @@ $(document).ready(function(){
    });
 
 
+
+   function BlockMove(event) {
+     // Tell Safari not to move the window.
+     event.preventDefault() ;
+    }
 
 
 

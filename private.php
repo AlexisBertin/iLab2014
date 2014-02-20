@@ -34,6 +34,7 @@ if(Auth::islog()){
 			</section> <!-- end bl-work-section -->
 			<div class="addChoice">
 					<div class="quest_form">
+						<div class="panel0">
 						<div class="owe">
 				    		<div class="back"><img src="assets/img/bck.png"/></div>
 							<h3><span>Add</span> an account</h3>
@@ -43,6 +44,7 @@ if(Auth::islog()){
 								<li class="activitesMenu">Activités<img class="checked" src="assets/img/checked_icon.svg"/></li>
 							</ul>
 						</div> <!-- end owe -->
+						</div>
 						<div class="steps">1/6</div>
 					</div> <!-- end quest_form -->
 			</div> <!-- end AddChoice -->
