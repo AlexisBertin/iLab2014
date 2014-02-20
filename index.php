@@ -1,26 +1,52 @@
+<!--[if IEMobile 7 ]>    <html class="no-js iem7"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
 <!DOCTYPE html>
 <html lang="fr" class="no-js">
 <head>
    <title>PHP | Membres</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-   <meta name="author" content="Alexis Bertin" />
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <title></title>
+   <meta name="description" content="">
+   <meta name="author" content="Alexis Bertin" />
+   <meta name="HandheldFriendly" content="True">
+   <meta name="MobileOptimized" content="320">
+   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+   <meta http-equiv="cleartype" content="on">
+
+   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/img/touch/apple-touch-icon-144x144-precomposed.png">
+   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/img/touch/apple-touch-icon-114x114-precomposed.png">
+   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/img/touch/apple-touch-icon-72x72-precomposed.png">
+   <link rel="apple-touch-icon-precomposed" href="assets/img/touch/apple-touch-icon-57x57-precomposed.png">
+   <link rel="shortcut icon" href="assets/img/touch/apple-touch-icon.png">
+
+   <!-- Tile icon for Win8 (144x144 + tile color) -->
+   <meta name="msapplication-TileImage" content="assets/img/touch/apple-touch-icon-144x144-precomposed.png">
+   <meta name="msapplication-TileColor" content="#222222">
+
+   <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
    <meta name="apple-mobile-web-app-capable" content="yes">
-   <meta name="apple-mobile-web-app-status-bar-style" content="translucent black">
+   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+   <meta name="apple-mobile-web-app-title" content="">
+   
+   <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+   <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+   
 
    <!-- link href="styles.css" rel="stylesheet" -->
    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
    <link rel="stylesheet" href="assets/css/jquery-ui.css">
    <link rel="stylesheet" href="assets/css/styles.css">
    <link rel="stylesheet" href="assets/fonts/css/font-awesome.css">
-
-      
+   <link rel="stylesheet" href="assets/css/normalize.css">
+   
    <script type="text/javascript" src="assets/js/jquery.js"></script>
    <script type="text/javascript" src="assets/js/jquery-ui.js"></script>
    <script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
    <script type="text/javascript" src="assets/js/index.js"></script>
 
+   <script type="text/javascript" src="assets/js/fastclick.js"></script>
+   <script type="text/javascript" src="assets/js/helper.js"></script>
    <script type="text/javascript" src="assets/js/hammerjs/hammer.js"></script>
    <script type="text/javascript" src="assets/js/hammerjs/jquery.hammer-standalone.min.js"></script>
    
