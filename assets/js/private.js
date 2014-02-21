@@ -6,7 +6,7 @@ $(document).ready(function(){
 		$.ajax({
 			url: "checkCurrentPrice.php",
 			success: function(html){
-		    	console.log(html);
+		    	/*console.log(html);*/
 		    	$('.personalCount').html(html+'<span class="devise">€</span>');
 			}
 		});
@@ -31,7 +31,7 @@ $(document).ready(function(){
 	function nextPanel(e){
 		currentMenu = e;
 		panelX++;
-		console.log(currentMenu+" "+panelX);
+		/*console.log(currentMenu+" "+panelX);*/
 		var prepreviousPanel = '.panel'+(panelX-2);
 		var previousPanel = '.panel'+(panelX-1);
 		var currentPanel = '.panel'+panelX;
@@ -51,29 +51,29 @@ $(document).ready(function(){
 			menu = '.jeDois';
 			var addMontant = $('.addMontant').val();
 			addMontant = addMontant - (addMontant*2);
-		} else { console.log('fail'); }
+		} else { /*console.log('fail'); }*/
 		
-		console.log('addMontant: '+addMontant);
+		/*console.log('addMontant: '+addMontant);*/
 		var datepicker = $('.datepicker').val();
 		var addNote = $('.addNote').val();
-		console.log('FinalSend');
-		console.log(addListe);
-		console.log(addName);
-		console.log(addMontant);
-		console.log(datepicker);
-		console.log(addNote);
+		/*console.log('FinalSend');*/
+		/*console.log(addListe);*/
+		/*console.log(addName);*/
+		/*console.log(addMontant);*/
+		/*console.log(datepicker);*/
+		/*console.log(addNote);*/
 		$.ajax({
 		    url: "functions.php",
 		    type: "POST",
 		    data: { addListe:addListe, addName:addName, addMontant:addMontant, datepicker:datepicker, addNote:addNote },
 		    success: function(html) {
-		    	/*console.log(html);*/
+		    	console.log(html);
 		    	mainPrice();
 		    	$(menu+' .panel7 .success').html("Cette dette a bien été enregistrée");
 		    	$.ajax({
 		    	   url: "checkCurrentPrice.php",
 		    	   success: function(html){
-		    	      console.log(html);
+		    	      /*console.log(html);*/
 		    	      if(html==''){
 		    	         $('.containerTotal .montantTotalChiffre').html('0€');   
 		    	      } else {
@@ -88,16 +88,16 @@ $(document).ready(function(){
 		    	   success: function(html){
 		    	      $('.containerTotal .recapTot').html(html);
 		    	      /*$('.containerTotal .subMenuPerso .deleteMontant').addClass('deleteMontant_opened');*/
-		    	      Hammer($('.containerTotal .subMenuPerso')).on("tap",function(e){
+		    	      $('.containerTotal .subMenuPerso').click(function(e){
 		    	         e.preventDefault();
-		    	         console.log($(this).find($('.deleteMontant')));
+		    	         /*console.log($(this).find($('.deleteMontant')));*/
 		    	         if($(this).find($('.deleteMontant')).hasClass('deleteMontant_opened')){
 		    	            $(this).find($('.deleteMontant')).removeClass('deleteMontant_opened');
 		    	         } else {
 		    	            $(this).find($('.deleteMontant')).addClass('deleteMontant_opened');
 		    	         }
 		    	      });
-		    	      Hammer($('.containerTotal .subMenuPerso .deleteMontant')).on("tap",function(e){
+		    	      $('.containerTotal .subMenuPerso .deleteMontant').click(function(e){
 		    	         e.preventDefault();
 		    	            var id = $(this).attr('id');
 		    	            id = id.substr(3,4);
@@ -106,7 +106,7 @@ $(document).ready(function(){
 		    	                  type: "POST",
 		    	                  data: { id:id },
 		    	                  success: function(html){
-		    	                     console.log(html)
+		    	                     /*console.log(html)*/
 		    	                     if(html == 'ok'){
 		    	                        /*$(this).parent().parent().fadeOut();*/
 		    	                        $.ajax({
@@ -122,7 +122,7 @@ $(document).ready(function(){
 		    	                        });
 		    	                        recapTotal();
 		    	                     } else {
-		    	                        console.log('error: '+html);
+		    	                        /*console.log('error: '+html);*/
 		    	                     }
 		    	                  }
 		    	               });
@@ -140,7 +140,7 @@ $(document).ready(function(){
 	}
 
 
-	Hammer($('.addChoice li')).on("tap",function(e){
+	$('.addChoice li').click(function(e){
 		var addChoiceSelect = $(this).attr('class');
 		var currentMenu;
 		switch(addChoiceSelect){
@@ -171,7 +171,7 @@ $(document).ready(function(){
 		nextPanel(currentMenu);
 	});
 
-	Hammer($('.startX')).on("tap",function(e){
+	$('.startX').click(function(e){
 		if ( $(this).hasClass("noClick") ) {
 			e.preventDefault; // No spam clic during the animations
 		} else {
@@ -191,7 +191,7 @@ $(document).ready(function(){
 			menuPanel(panelX);
 		}
 	});
-	Hammer($('.nextStep')).on("tap",function(e){
+	$('.nextStep').click(function(e){
 		if ( $(this).hasClass("noClick") ) {
 			e.preventDefault; // No spam clic during the animations
 		} else {
@@ -218,11 +218,10 @@ $(document).ready(function(){
 	
 	
 
-	
-	Hammer($('.back')).on("tap",function(e){
+	$('.back').click(function(e){
 		var currentMenu;
 		var addChoiceSelect = $(this).parent().parent().parent().attr('class');
-		console.log(addChoiceSelect);
+		/*console.log(addChoiceSelect);*/
 		switch(addChoiceSelect){
 			case 'bl-panel-items onMeDoit': currentMenu = '.onMeDoit'; break;
 			case 'bl-panel-items jeDois': currentMenu = '.jeDois'; break;
@@ -230,7 +229,7 @@ $(document).ready(function(){
 		}
 
 		var thisPanel = $(this).parent().parent().removeClass('bl-show-work').attr('class').substr(5,1);
-		console.log('panel: '+thisPanel);
+		/*console.log('panel: '+thisPanel);*/
 		$(currentMenu+' .panel'+(thisPanel-1)).removeClass('bl-hide-current-work').addClass('bl-show-work');
 		$(currentMenu+' .panel'+(thisPanel-2)).addClass('bl-hide-current-work');
 		if((thisPanel-1) < -1){ thisPanel = 0 };
@@ -260,7 +259,7 @@ $(document).ready(function(){
 		}
 	});
 
-	Hammer($('.pass')).on("tap",function(e){
+	$('.pass').click(function(e){
 		e.preventDefault();
 		var addListe = $('.addListe').val();
 		var addListeSelected = $('.addListeForm select').val();
@@ -290,18 +289,18 @@ $(document).ready(function(){
 
 	$('.bl-panel-items form').on('submit', function(e){
 		e.preventDefault();
-		console.log(e);
+		/*console.log(e);*/
 		var addListe = $('.addListe').val();
 		var addListeSelected = $('.addListeForm select').val();
 		var addName = $('.addName').val();
 		var addMontant = $('.addMontant').val();
 		var datepicker = $('.datepicker').val();
 		var addNote = $('.addNote').val();
-		console.log("addListe: "+addListeSelected);
-		console.log("addName: "+addName);
-		console.log("addMontant: "+addMontant);
-		console.log("datepicker: "+datepicker);
-		console.log("addNote: "+addNote);
+		/*console.log("addListe: "+addListeSelected);*/
+		/*console.log("addName: "+addName);*/
+		/*console.log("addMontant: "+addMontant);*/
+		/*console.log("datepicker: "+datepicker);*/
+		/*console.log("addNote: "+addNote);*/
 		if($(this).hasClass('addListeForm')){
 			$.ajax({
 				url: "checkListe.php",
@@ -329,11 +328,10 @@ $(document).ready(function(){
 
 
 
-	Hammer($('.panel6 button')).on("tap",function(e){
+	$('.panel6 button').click(function(e){
 		ajaxPost();
 	});
-	
-	Hammer($('.btBackStart')).on("tap",function(e){
+	$('.btBackStart').click(function(){
 		$('.panel6').removeClass('bl-hide-current-work');
 		$('.panel7').addClass('bl-hide-current-work').removeClass('bl-show-work').delay(200).removeClass('bl-hide-current-work');
 

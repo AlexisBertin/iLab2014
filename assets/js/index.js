@@ -8,7 +8,7 @@ window.addEventListener("load",function() {
 
 $(document).ready(function(){
    // Menu
-   Hammer($('#header')).on("tap",function(e){
+   $('#header').click(function(){
       if($('.content_menu').hasClass('content_menu_opened')){
          $('.content_menu').delay(200).removeClass('content_menu_opened');
          $('.container').css({'opacity':'1'});
@@ -22,8 +22,7 @@ $(document).ready(function(){
       }
    });
 
-
-   Hammer($('.content_menu .basic a')).on("tap",function(e){
+   $('.content_menu .basic a').click(function(e){
       e.preventDefault();
       $('.content_menu').delay(200).removeClass('content_menu_opened');
       $('#header').css({'background':'#fff'});
@@ -49,16 +48,16 @@ function recapTotal(){
       success: function(html){
          $('.containerTotal .recapTot').html(html);
          /*$('.containerTotal .subMenuPerso .deleteMontant').addClass('deleteMontant_opened');*/
-         Hammer($('.containerTotal .subMenuPerso')).on("tap",function(e){
+         $('.containerTotal .subMenuPerso').click(function(e){
             e.preventDefault();
-            console.log($(this).find($('.deleteMontant')));
+            /*console.log($(this).find($('.deleteMontant')));*/
             if($(this).find($('.deleteMontant')).hasClass('deleteMontant_opened')){
                $(this).find($('.deleteMontant')).removeClass('deleteMontant_opened');
             } else {
                $(this).find($('.deleteMontant')).addClass('deleteMontant_opened');
             }
          });
-         Hammer($('.containerTotal .subMenuPerso .deleteMontant')).on("tap",function(e){
+         $('.containerTotal .subMenuPerso .deleteMontant').click(function(e){
             e.preventDefault();
                var id = $(this).attr('id');
                id = id.substr(3,4);
@@ -67,7 +66,7 @@ function recapTotal(){
                      type: "POST",
                      data: { id:id },
                      success: function(html){
-                        console.log(html)
+                        /*console.log(html)*/
                         if(html == 'ok'){
                            /*$(this).parent().parent().fadeOut();*/
                            $.ajax({
@@ -83,7 +82,7 @@ function recapTotal(){
                            });
                            recapTotal();
                         } else {
-                           console.log('error: '+html);
+                           /*console.log('error: '+html);*/
                         }
                      }
                   });
@@ -101,7 +100,7 @@ recapTotal();
    $.ajax({
       url: "checkCurrentPrice.php",
       success: function(html){
-         console.log(html);
+         /*console.log(html);*/
          if(html==''){
             $('.containerTotal .montantTotalChiffre').html('0€');   
          } else {
@@ -121,7 +120,8 @@ recapTotal();
 
 
 
-   Hammer($('.content_connexion .blocLogin .sign')).on("tap",function(e){
+
+   $('.content_connexion .blocLogin .sign').click(function(e){
       e.preventDefault();
       $('.containerLogin .content_connexion .blocLogin').css({'opacity':'0','z-index':'-1'});
       $('.containerLogin .content_connexion .blocRegister').css({'display':'block'});
@@ -130,7 +130,7 @@ recapTotal();
          $('.containerLogin .content_connexion .blocRegister').css({'opacity':'1','z-index':'10'});
       }, 400);   
    });
-   Hammer($('.signCancel')).on("tap",function(e){
+   $('.signCancel').click(function(e){
       e.preventDefault();
       $('.containerLogin .content_connexion .blocRegister').css({'opacity':'0','z-index':'-1'});
       $('.containerLogin .content_connexion .blocLogin').css({'display':'block'});
@@ -150,7 +150,7 @@ recapTotal();
                type: "POST",
                data: { pseudo:pseudo, password:password },
                success: function(html){
-                  console.log(html)
+                  /*console.log(html)*/
                   if(html == 'ok'){
                      $.ajax({
                         url: 'private.php',
@@ -186,7 +186,7 @@ recapTotal();
          type: "POST",
          data: { pseudo:pseudo, mail:mail, password:password },
          success: function(html){
-            console.log(html);
+            /*console.log(html);*/
             $('.errorRecap').html(html);
             // back button
          },

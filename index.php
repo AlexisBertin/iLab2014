@@ -48,8 +48,12 @@
 
    <script type="text/javascript" src="assets/js/fastclick.js"></script>
    <script type="text/javascript" src="assets/js/helper.js"></script>
-   <script type="text/javascript" src="assets/js/hammerjs/hammer.js"></script>
-   <script type="text/javascript" src="assets/js/hammerjs/jquery.hammer-standalone.min.js"></script>
+   <script type="text/javascript">
+      $(function() {
+          FastClick.attach(document.body);
+      });
+   </script>
+   
    
 </head>
 <body ontouchmove="BlockMove(event);">
