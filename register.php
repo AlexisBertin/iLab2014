@@ -50,10 +50,7 @@ if(!empty($_POST) && isset($_POST['pseudo']) && isset($_POST['mail']) && isset($
               $entete  = 'MIME-Version: 1.0' . "\r\n";
               $entete .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
               // En-têtes additionnels
-              $entete .= 'To: Mary <mary@example.com>, Kelly <kelly@example.com>' . "\r\n";
-              $entete .= 'From: Anniversaire <anniversaire@example.com>' . "\r\n";
-              $entete .= 'Cc: anniversaire_archive@example.com' . "\r\n";
-              $entete .= 'Bcc: anniversaire_verif@example.com' . "\r\n";
+              $entete .= 'From: OweMe - Activation <noreply@oweme.com>' . "\r\n";
             
             // Envoi du mail
             if (mail($mail, 'Activation: ',$body,$entete)){

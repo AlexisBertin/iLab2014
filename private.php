@@ -41,7 +41,7 @@ if(Auth::islog()){
 							<ul>
 								<li class="onMeDoitMenu">On me doit <img class="checked" src="assets/img/checked_icon.svg"/></li>
 								<li class="jeDoisMenu">Je dois<img class="checked" src="assets/img/checked_icon.svg"/></li>
-								<li class="activitesMenu">Activités<img class="checked" src="assets/img/checked_icon.svg"/></li>
+								<li class="activitesMenu" style="display:none;">Activités<img class="checked" src="assets/img/checked_icon.svg"/></li>
 							</ul>
 						</div> <!-- end owe -->
 						</div>
@@ -137,11 +137,13 @@ if(Auth::islog()){
 				</div>
 
 				<div class="panel6">
+					<div>
 					<div class="back"><img src="assets/img/bck.png"/></div>
 					<h2>Summary</h2>
 					<div class="contentRecup">
 						<div class="recap"></div>
 						<button type="button">Save</button>
+					</div>
 					</div>
 				</div>
 

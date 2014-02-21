@@ -22,12 +22,101 @@ $(document).ready(function(){
       }
    });
 
+   $('.content_menu .basic a').click(function(e){
+      e.preventDefault();
+      $('.content_menu').delay(200).removeClass('content_menu_opened');
+      $('#header').css({'background':'#fff'});
+      $('#header h1').css({'color':'#3d3d3d'});
+      if($(this).parent().hasClass('addCount')){
+         $('.containerTotal').removeClass('containerTotal_opened');
+      } else if ($(this).parent().hasClass('accounts')){
+         $('.containerTotal').addClass('containerTotal_opened');
+      }
+      
+      
+      $('.container').css({'opacity':'1'});
+      
+      
+   });
+
+  
+
+function recapTotal(){
+   $.ajax({
+      url: 'recapTotal.php',
+      cache: false,
+      success: function(html){
+         $('.containerTotal .recapTot').html(html);
+         /*$('.containerTotal .subMenuPerso .deleteMontant').addClass('deleteMontant_opened');*/
+         $('.containerTotal .subMenuPerso').click(function(e){
+            e.preventDefault();
+            console.log($(this).find($('.deleteMontant')));
+            if($(this).find($('.deleteMontant')).hasClass('deleteMontant_opened')){
+               $(this).find($('.deleteMontant')).removeClass('deleteMontant_opened');
+            } else {
+               $(this).find($('.deleteMontant')).addClass('deleteMontant_opened');
+            }
+         });
+         $('.containerTotal .subMenuPerso .deleteMontant').click(function(e){
+            e.preventDefault();
+               var id = $(this).attr('id');
+               id = id.substr(3,4);
+                  $.ajax({
+                     url: "deleteRow.php",
+                     type: "POST",
+                     data: { id:id },
+                     success: function(html){
+                        console.log(html)
+                        if(html == 'ok'){
+                           /*$(this).parent().parent().fadeOut();*/
+                           $.ajax({
+                              url: "checkCurrentPrice.php",
+                              success: function(html){
+                                 if(html==''){
+                                    $('.containerTotal .montantTotalChiffre').html('0€');   
+                                 } else {
+                                    $('.containerTotal .montantTotalChiffre').html(html+'€');
+                                 }
+                                 
+                              }
+                           });
+                           recapTotal();
+                        } else {
+                           console.log('error: '+html);
+                        }
+                     }
+                  });
+         });
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown){
+         alert(textStatus);
+      }
+   });
+};
+recapTotal();
+
+
+
+   $.ajax({
+      url: "checkCurrentPrice.php",
+      success: function(html){
+         console.log(html);
+         if(html==''){
+            $('.containerTotal .montantTotalChiffre').html('0€');   
+         } else {
+            $('.containerTotal .montantTotalChiffre').html(html+'€');
+         }
+      }
+   });
+
+
+
+
 
 
    function BlockMove(event) {
-     // Tell Safari not to move the window.
-     event.preventDefault() ;
-    }
+      event.preventDefault() ;
+   }
 
 
 

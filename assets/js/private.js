@@ -7,7 +7,7 @@ $(document).ready(function(){
 			url: "checkCurrentPrice.php",
 			success: function(html){
 		    	console.log(html);
-		    	$('.personalCount').html(html);
+		    	$('.personalCount').html(html+'<span class="devise">€</span>');
 			}
 		});
 	}

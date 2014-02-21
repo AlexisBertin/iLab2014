@@ -62,17 +62,12 @@
 
    <div class="content_menu">
       <ul class="basic" style="opacity:1">
-         <li><a href="">Edit Profil</a></li>
-         <li><a href="">My Accounts</a>
-               <ul class="menu_hide">
-               <li><a href="">Owes me</a></li>
-               <li><a href="">I owe</a></li>
-            </ul>
-         </li>
+         <li class="addCount"><a href="">Add a count</a></li>
+         <li class="accounts"><a href="">My Accounts</a></li>
       </ul> <!-- end basic -->
 
       <div class="signOut">
-         <a href="">Sign out</a>
+         <a href="logout.php">Sign out</a>
       </div> <!-- end_sign -->
    </div> <!-- end content_menu -->
 
@@ -115,6 +110,40 @@
    <div class="container">
 
    </div>
+
+   <div class="containerTotal">
+      <div class="montantTot">
+         <!-- <span>+</span> --><span class="montantTotalChiffre"></span>
+      </div>
+      <ul class="recapTot">
+         <!-- <li>
+            <ul class="subMenuPerso">
+               <li>Alexis Bertin</li>
+               <li>12/02/2013</li>
+               <li>30 €</li>
+               <li class="deleteMontant">Delete</li>
+            </ul>
+         </li>
+         <li>
+            <ul class="subMenuPerso">
+               <li>Alexis Bertin</li>
+               <li>12/02/2013</li>
+               <li>100 €</li>
+               <li class="deleteMontant">Delete</li>
+            </ul>
+         </li>
+         <li>
+            <ul class="subMenuPerso">
+               <li>Alexis Bertin</li>
+               <li>12/02/2013</li>
+               <li>-300 €</li>
+               <li class="deleteMontant">Delete</li>
+            </ul>
+         </li> -->
+      </ul>
+   </div>
+
+   <div class="resizePage"><img src="assets/img/resizePage.png" alt="cadre image resize" /></div>
 </body>
 </html> 
 
