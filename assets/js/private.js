@@ -70,6 +70,71 @@ $(document).ready(function(){
 		    	/*console.log(html);*/
 		    	mainPrice();
 		    	$(menu+' .panel7 .success').html("Cette dette a bien été enregistrée");
+		    	$.ajax({
+		    	   url: "checkCurrentPrice.php",
+		    	   success: function(html){
+		    	      console.log(html);
+		    	      if(html==''){
+		    	         $('.containerTotal .montantTotalChiffre').html('0€');   
+		    	      } else {
+		    	         $('.containerTotal .montantTotalChiffre').html(html+'€');
+		    	      }
+		    	   }
+		    	});
+
+		    	$.ajax({
+		    	   url: 'recapTotal.php',
+		    	   cache: false,
+		    	   success: function(html){
+		    	      $('.containerTotal .recapTot').html(html);
+		    	      /*$('.containerTotal .subMenuPerso .deleteMontant').addClass('deleteMontant_opened');*/
+		    	      $('.containerTotal .subMenuPerso').click(function(e){
+		    	      	
+		    	         e.preventDefault();
+		    	         console.log($(this).find($('.deleteMontant')));
+		    	         if($(this).find($('.deleteMontant')).hasClass('deleteMontant_opened')){
+		    	            $(this).find($('.deleteMontant')).removeClass('deleteMontant_opened');
+		    	         } else {
+		    	            $(this).find($('.deleteMontant')).addClass('deleteMontant_opened');
+		    	         }
+		    	      });
+		    	      $('.containerTotal .subMenuPerso .deleteMontant').click(function(e){
+		    	         e.preventDefault();
+		    	            var id = $(this).attr('id');
+		    	            id = id.substr(3,4);
+		    	               $.ajax({
+		    	                  url: "deleteRow.php",
+		    	                  type: "POST",
+		    	                  data: { id:id },
+		    	                  success: function(html){
+		    	                     console.log(html)
+		    	                     if(html == 'ok'){
+		    	                        /*$(this).parent().parent().fadeOut();*/
+		    	                        $.ajax({
+		    	                           url: "checkCurrentPrice.php",
+		    	                           success: function(html){
+		    	                              if(html==''){
+		    	                                 $('.containerTotal .montantTotalChiffre').html('0€');   
+		    	                              } else {
+		    	                                 $('.containerTotal .montantTotalChiffre').html(html+'€');
+		    	                              }
+		    	                              
+		    	                           }
+		    	                        });
+		    	                        recapTotal();
+		    	                     } else {
+		    	                        console.log('error: '+html);
+		    	                     }
+		    	                  }
+		    	               });
+		    	      });
+		    	   },
+		    	   error: function(XMLHttpRequest, textStatus, errorThrown){
+		    	      alert(textStatus);
+		    	   }
+		    	});
+
+
 		    	nextPanel(menu);
 		    }
 		});
@@ -195,7 +260,34 @@ $(document).ready(function(){
 		}
 	});
 
-	
+	$('.pass').click(function(e){
+		e.preventDefault();
+		var addListe = $('.addListe').val();
+		var addListeSelected = $('.addListeForm select').val();
+		var addName = $('.addName').val();
+		var addMontant = $('.addMontant').val();
+		var datepicker = $('.datepicker').val();
+		var addNote = $('.addNote').val();
+		if($(this).hasClass('addListeForm')){
+			$.ajax({
+				url: "checkListe.php",
+				type: "POST",
+				data: { addListe:addListe },
+				success: function(html){
+					if(html == 'ok'){
+			    		$('.addListeForm .error').html('');
+			    		$('.addListeForm select').append('<option value="'+addListe+'" selected >'+addListe+'</option>');
+			    		$(".addListeForm select").val(addListe);
+			    	} else {
+			    		$('.addListeForm .error').html(html);
+			    	}
+				}
+			});
+		} else {
+			nextPanel(currentMenu);	
+		}
+	});
+
 	$('.bl-panel-items form').on('submit', function(e){
 		e.preventDefault();
 		console.log(e);
