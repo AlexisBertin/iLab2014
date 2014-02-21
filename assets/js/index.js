@@ -8,7 +8,7 @@ window.addEventListener("load",function() {
 
 $(document).ready(function(){
    // Menu
-   $('#header').click(function(){
+   Hammer($('#header')).on("tap",function(e){
       if($('.content_menu').hasClass('content_menu_opened')){
          $('.content_menu').delay(200).removeClass('content_menu_opened');
          $('.container').css({'opacity':'1'});
@@ -22,7 +22,8 @@ $(document).ready(function(){
       }
    });
 
-   $('.content_menu .basic a').click(function(e){
+
+   Hammer($('.content_menu .basic a')).on("tap",function(e){
       e.preventDefault();
       $('.content_menu').delay(200).removeClass('content_menu_opened');
       $('#header').css({'background':'#fff'});
@@ -48,7 +49,7 @@ function recapTotal(){
       success: function(html){
          $('.containerTotal .recapTot').html(html);
          /*$('.containerTotal .subMenuPerso .deleteMontant').addClass('deleteMontant_opened');*/
-         $('.containerTotal .subMenuPerso').click(function(e){
+         Hammer($('.containerTotal .subMenuPerso')).on("tap",function(e){
             e.preventDefault();
             console.log($(this).find($('.deleteMontant')));
             if($(this).find($('.deleteMontant')).hasClass('deleteMontant_opened')){
@@ -57,7 +58,7 @@ function recapTotal(){
                $(this).find($('.deleteMontant')).addClass('deleteMontant_opened');
             }
          });
-         $('.containerTotal .subMenuPerso .deleteMontant').click(function(e){
+         Hammer($('.containerTotal .subMenuPerso .deleteMontant')).on("tap",function(e){
             e.preventDefault();
                var id = $(this).attr('id');
                id = id.substr(3,4);
@@ -120,8 +121,7 @@ recapTotal();
 
 
 
-
-   $('.content_connexion .blocLogin .sign').click(function(e){
+   Hammer($('.content_connexion .blocLogin .sign')).on("tap",function(e){
       e.preventDefault();
       $('.containerLogin .content_connexion .blocLogin').css({'opacity':'0','z-index':'-1'});
       $('.containerLogin .content_connexion .blocRegister').css({'display':'block'});
@@ -130,7 +130,7 @@ recapTotal();
          $('.containerLogin .content_connexion .blocRegister').css({'opacity':'1','z-index':'10'});
       }, 400);   
    });
-   $('.signCancel').click(function(e){
+   Hammer($('.signCancel')).on("tap",function(e){
       e.preventDefault();
       $('.containerLogin .content_connexion .blocRegister').css({'opacity':'0','z-index':'-1'});
       $('.containerLogin .content_connexion .blocLogin').css({'display':'block'});

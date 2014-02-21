@@ -88,8 +88,7 @@ $(document).ready(function(){
 		    	   success: function(html){
 		    	      $('.containerTotal .recapTot').html(html);
 		    	      /*$('.containerTotal .subMenuPerso .deleteMontant').addClass('deleteMontant_opened');*/
-		    	      $('.containerTotal .subMenuPerso').click(function(e){
-		    	      	
+		    	      Hammer($('.containerTotal .subMenuPerso')).on("tap",function(e){
 		    	         e.preventDefault();
 		    	         console.log($(this).find($('.deleteMontant')));
 		    	         if($(this).find($('.deleteMontant')).hasClass('deleteMontant_opened')){
@@ -98,7 +97,7 @@ $(document).ready(function(){
 		    	            $(this).find($('.deleteMontant')).addClass('deleteMontant_opened');
 		    	         }
 		    	      });
-		    	      $('.containerTotal .subMenuPerso .deleteMontant').click(function(e){
+		    	      Hammer($('.containerTotal .subMenuPerso .deleteMontant')).on("tap",function(e){
 		    	         e.preventDefault();
 		    	            var id = $(this).attr('id');
 		    	            id = id.substr(3,4);
@@ -141,7 +140,7 @@ $(document).ready(function(){
 	}
 
 
-	$('.addChoice li').click(function(e){
+	Hammer($('.addChoice li')).on("tap",function(e){
 		var addChoiceSelect = $(this).attr('class');
 		var currentMenu;
 		switch(addChoiceSelect){
@@ -172,7 +171,7 @@ $(document).ready(function(){
 		nextPanel(currentMenu);
 	});
 
-	$('.startX').click(function(e){
+	Hammer($('.startX')).on("tap",function(e){
 		if ( $(this).hasClass("noClick") ) {
 			e.preventDefault; // No spam clic during the animations
 		} else {
@@ -192,7 +191,7 @@ $(document).ready(function(){
 			menuPanel(panelX);
 		}
 	});
-	$('.nextStep').click(function(e){
+	Hammer($('.nextStep')).on("tap",function(e){
 		if ( $(this).hasClass("noClick") ) {
 			e.preventDefault; // No spam clic during the animations
 		} else {
@@ -219,7 +218,8 @@ $(document).ready(function(){
 	
 	
 
-	$('.back').click(function(e){
+	
+	Hammer($('.back')).on("tap",function(e){
 		var currentMenu;
 		var addChoiceSelect = $(this).parent().parent().parent().attr('class');
 		console.log(addChoiceSelect);
@@ -260,7 +260,7 @@ $(document).ready(function(){
 		}
 	});
 
-	$('.pass').click(function(e){
+	Hammer($('.pass')).on("tap",function(e){
 		e.preventDefault();
 		var addListe = $('.addListe').val();
 		var addListeSelected = $('.addListeForm select').val();
@@ -329,10 +329,11 @@ $(document).ready(function(){
 
 
 
-	$('.panel6 button').click(function(e){
+	Hammer($('.panel6 button')).on("tap",function(e){
 		ajaxPost();
 	});
-	$('.btBackStart').click(function(){
+	
+	Hammer($('.btBackStart')).on("tap",function(e){
 		$('.panel6').removeClass('bl-hide-current-work');
 		$('.panel7').addClass('bl-hide-current-work').removeClass('bl-show-work').delay(200).removeClass('bl-hide-current-work');
 
