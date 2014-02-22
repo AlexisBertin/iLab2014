@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+require('auth.php'); 
 require_once 'connexion.php';
 
 

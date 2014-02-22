@@ -22,7 +22,7 @@ $(document).ready(function(){
       }
    });
 
-   $('.content_menu .basic a').click(function(e){
+   $('.content_menu .basic li a').click(function(e){
       e.preventDefault();
       $('.content_menu').delay(200).removeClass('content_menu_opened');
       $('#header').css({'background':'#fff'});
@@ -36,7 +36,7 @@ $(document).ready(function(){
       
       $('.container').css({'opacity':'1'});
       
-      
+      return false;
    });
 
   
@@ -176,11 +176,11 @@ recapTotal();
                }
             });
    });
-   $('.registration').on('submit',function(e){
+   $('.blocRegister .registration').on('submit',function(e){
       e.preventDefault();
-      var pseudo = $('.pseudo').val();
-      var mail = $('.mail').val();
-      var password = $('.password').val();
+      var pseudo = $('.registration .pseudo').val();
+      var mail = $('.registration .mail').val();
+      var password = $('.registration .password').val();
       $.ajax({
          url: "register.php",
          type: "POST",

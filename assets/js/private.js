@@ -51,7 +51,8 @@ $(document).ready(function(){
 			menu = '.jeDois';
 			var addMontant = $('.addMontant').val();
 			addMontant = addMontant - (addMontant*2);
-		} else { /*console.log('fail'); }*/
+		} else { /*console.log('fail'); */
+		}
 		
 		/*console.log('addMontant: '+addMontant);*/
 		var datepicker = $('.datepicker').val();

@@ -14,21 +14,22 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
    <meta http-equiv="cleartype" content="on">
 
-   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/img/touch/apple-touch-icon-144x144-precomposed.png">
-   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/img/touch/apple-touch-icon-114x114-precomposed.png">
-   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/img/touch/apple-touch-icon-72x72-precomposed.png">
-   <link rel="apple-touch-icon-precomposed" href="assets/img/touch/apple-touch-icon-57x57-precomposed.png">
-   <link rel="shortcut icon" href="assets/img/touch/apple-touch-icon.png">
-   <link rel="apple-touch-startup-image"href="./startup.png" />
+   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/img/logo144.png">
+   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/img/logo114.png">
+   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/img/logo72.png">
+   <link rel="apple-touch-icon-precomposed" href="assets/img/logo57.png">
+   <link rel="shortcut icon" href="assets/img/logo144.png">
+   <link rel="apple-touch-startup-image" href="splash-screen-320x460.png"/>
+   <link rel="apple-touch-startup-image" href="splash-screen-640x920.png" />
 
    <!-- Tile icon for Win8 (144x144 + tile color) -->
-   <meta name="msapplication-TileImage" content="assets/img/touch/apple-touch-icon-144x144-precomposed.png">
+   <meta name="msapplication-TileImage" content="assets/img/logo144.png">
    <meta name="msapplication-TileColor" content="#222222">
 
    <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
    <meta name="apple-mobile-web-app-capable" content="yes">
    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-   <meta name="apple-mobile-web-app-title" content="">
+   <meta name="apple-mobile-web-app-title" content="OweMe">
    
    <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
    <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
@@ -96,11 +97,11 @@
             <h2 class="big_titles">Registration</h2>
             <form class="connexion registration" action="" method="POST">
                <div class="icon-ph"><i class="icon-envelope"></i></div>
-               <input type="text" name="pseudo" placeholder="USER"value="<?php if(isset($_POST['pseudo'])){ echo $_POST['pseudo']; } ?>" required /><br />
+               <input type="text" name="pseudo" class="pseudo" placeholder="USER"value="<?php if(isset($_POST['pseudo'])){ echo $_POST['pseudo']; } ?>" required /><br />
                <div class="error"><?php if(isset($error_pseudo)){ echo $error_pseudo; } ?></div>
-               <input type="email" name="mail" placeholder="EMAIL"value="<?php if(isset($_POST['mail'])){ echo $_POST['mail']; } ?>" required /><br />
+               <input type="email" name="mail" class="mail" placeholder="EMAIL"value="<?php if(isset($_POST['mail'])){ echo $_POST['mail']; } ?>" required /><br />
                <div class="error"><?php if(isset($error_mail)){ echo $error_mail; } ?></div>
-               <input type="password" name="password" placeholder="PASSWORD" required /><br />
+               <input type="password" name="password" class="password" placeholder="PASSWORD" required /><br />
                <div class="error"><?php if(isset($error_password)){ echo $error_password; } ?></div>
 
                <div class="errorRecap"></div>
