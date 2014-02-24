@@ -1,0 +1,767 @@
+/** CSS - OweMe **/
+
+::selection {
+	background: rgba();
+}
+
+::-moz-selection {
+	background: rgba();
+}
+
+
+body {
+	font-family: 'Lato', sans-serif;
+	font-size: 18px;
+	line-height: 1.4;
+	color: #3d3d3d;
+} 
+
+p {
+	font-weight: 300;
+}
+
+h3 {
+	font-size: 36px;
+	margin-bottom: 30px;
+}
+
+
+
+/** HEADER **/
+
+header {
+	height: 610px;
+}
+
+header.hteam {
+	height: 300px;
+}
+
+header, footer {
+	text-align: center;
+	color: #fff;
+	background: #ee3355; /* Old browsers */
+		background: -moz-linear-gradient(top,  #ee3355 0%, #ff5b37 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ee3355), color-stop(100%,#ff5b37)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #ee3355 0%,#ff5b37 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #ee3355 0%,#ff5b37 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #ee3355 0%,#ff5b37 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #ee3355 0%,#ff5b37 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee3355', endColorstr='#ff5b37',GradientType=0 ); /* IE6-9 */
+
+
+}
+
+h1 {
+	padding-top: 60px;
+}
+
+h1 a{
+	color: #fff;
+	text-decoration: none;
+	font-size: 72px;
+}
+
+h1 span {
+	font-weight: 300;
+}
+
+h2	{
+	font-size: 36px;
+	font-weight: 100;
+}
+
+h2 span {
+	font-weight: 400;
+}
+
+header img {
+	width: 238px;
+}
+
+/** CONTENT **/
+
+section {
+	clear: both;
+}
+
+.content {
+	width: 985px;
+	margin: 0 auto;
+	overflow: hidden;
+	/*background: green;*/
+}
+
+/** Section1 - four words **/
+
+.section1 {
+	margin-top: -281px;
+	overflow: hidden;
+}
+
+.section1 ul {
+	width: 300px;
+	float: right;
+	margin-top: 50px;
+}
+
+
+.section1 ul:first-child {
+	float: left;
+	margin-right: 58px;
+}
+
+
+	.section1 ul li:first-child {
+		color: #fff;
+		margin-top: 10px;
+		margin-bottom: 80px;
+	}
+
+.section1 img {
+	float: left;
+}
+
+.section1 h3 {
+	font-size: 36px;
+}
+
+.section1 .start {
+	text-align: center;
+	margin-top: 30px;
+	background: #ddd;
+	width: 210px;
+	height: 60px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.section1 .start a{
+	padding-left: 30px;
+	margin-top: 5px;
+	text-decoration: none;
+	line-height: 50px;
+	font-weight: 100;
+	width: 170px;
+	height: 50px;
+	display: inline-block;
+	color: #fff;
+	background: url('../img/start.png') no-repeat 30px, #007aff;
+	border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+}
+
+/** Section2 - VIDEO **/
+
+.section2 {
+	margin-top: 150px;
+	margin-bottom: 0;
+}
+
+.section2 img {
+	display: block;
+	width: 100%;
+}
+
+video {
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+/** Section3 - Few step **/
+
+.section3 {
+	background: #ebebeb;
+	height: 600px;
+	overflow: hidden;
+	margin-top: 0;
+}
+
+.section3 .info {
+	float: left;
+	width: 500px;
+	margin-top: 250px;
+}	
+
+	.section3 .info ol {
+		float: right;
+	}
+
+	.section3 .info ol li {
+		font-weight: 100;
+		font-size: 16px;
+		float: left;
+		margin-right: 20px;
+		margin-top: 30px;
+	}
+
+.section3 .illu {
+	float: right;
+	position: relative;
+	margin-top: 60px;
+}
+
+	.section3 .illu img {
+		float: right;
+	}
+
+	.section3 .illu ul {
+		position: absolute;
+		width: 1980px;
+		top: 230px;
+		left: 50px;
+	}
+
+		.section3 .illu ul li {
+			float: left;
+			margin-right: 100px;
+		}
+
+
+/** Section4 - Account **/
+
+.section4 {
+	padding: 130px 0 ;
+}
+
+.section4 .illu2{
+	float: left;
+	margin-left: 100px
+}
+
+.section4 .illu3{
+	display: none;
+}
+
+.section4 .info2 {
+	float: right;
+	width: 500px;
+}
+
+	.section4 .info2 .seconh3 {
+		margin-top: 50px;
+	}
+	
+	.section4 .info2 p+p {
+		margin-top: 30px;
+	}
+
+/** Section5 - Pictures **/
+
+.section5 {
+	background: url('../img/friends.png') no-repeat center center;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size:ba cover;
+  background-size: cover;
+	text-align: center;
+	height: 630px;
+	position: relative;
+}
+
+.section5 h3 {
+	border: 2px solid #fff;
+	background: rgba(0,0,0,.25);
+	font-size: 60px;
+	color: #fff;
+	font-weight: 100;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -54px;
+	margin-left: -490px;
+	padding: 10px 50px;
+}
+
+/** Section6 - Never Forget **/
+
+.section6 {
+	padding: 130px 0 ;
+	background: url(../img/pattern.png) repeat;
+}
+
+.section6 .info3 {
+	float: left;
+	width: 500px;
+	margin-top: 140px;
+}
+
+.section6 .illu3 {
+	float:right;
+}
+
+	.section6 .illu3 .iphone2 {
+		margin-bottom: 20px;
+		margin-left: -100px;
+		position: relative;
+		z-index: -1;
+	}
+
+
+/** Footer **/
+
+footer .start {
+	margin-top: 70px;
+	display: inline-block;
+	background: rgba(255,255,255,.3);
+	width: 210px;
+	height: 60px;
+	border-radius: 5px;
+		-webkit-border-radius: 5px;
+}
+
+footer .start a{
+	padding-left: 30px;
+	margin-top: 5px;
+	text-decoration: none;
+	line-height: 50px;
+	font-weight: 100;
+	width: 170px;
+	height: 50px;
+	display: inline-block;
+	color: #fff;
+	background: url('../img/start.png') no-repeat 30px, #007aff;
+	border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+}
+
+footer h3{
+	margin-top: 100px;
+	font-size: 72px;
+	font-weight: 200;
+	margin-bottom: 10px;
+}
+
+footer h4 {
+	font-size: 36px;
+	font-weight: 100;
+}
+
+footer p {
+	margin: 10px auto 100px;
+	font-weight: 100;
+	width: 240px;
+}
+
+footer  {
+	padding-bottom: 30px;
+}
+
+footer nav {
+	font-weight: 300;
+}
+
+	footer nav span {
+		font-weight: 400;
+	}
+
+
+footer nav .nameapp {
+	float: left;
+}
+
+	footer nav .nameapp a {
+		text-decoration: none;
+		color: #fff;
+	}
+
+footer nav ul{
+	float: left;
+	overflow: hidden;
+	margin: 0 273px;
+}
+
+footer nav ul li {
+	float: left;
+	margin-right: 50px;
+}
+	footer nav ul li a {
+		color: #fff;
+		text-decoration: none;
+	}
+
+footer nav ul li:last-child {
+	margin-right: 0;
+}
+
+footer .label {
+	text-transform: uppercase;
+	font-size: 14px;
+}
+
+footer .label span {
+	font-size: 16px;
+}
+
+
+.section8 {
+	margin-bottom: 100px;
+	margin-top: 80px;
+}
+
+.section8 h2, .section9 h2 {
+	text-align: center;
+	margin-bottom: 5px;
+	font-weight: 300;
+}
+
+.section8 h3 {
+	text-align: center;
+	font-size: 20px;
+	font-weight: 100;
+}
+
+.section8 ul li {
+	margin-top: 90px;
+	margin-right: 47px;
+	float: left;
+	width: 210px;
+}
+	.section8 ul li:last-child {
+		margin-right: 0px;
+	}
+
+	.section8 a {
+		text-decoration: none;
+		color: #3d3d3d;
+		font-size: 30px;
+		color: 
+	}
+
+.section8 ul li a {
+	font-size: 16px;
+	color:  #ee3355;
+}
+
+	.section8 p+p {
+		font-size: 18px;
+	}
+
+.section8 .teampic {
+	background: url(../img/alexis.png) no-repeat center center;
+	margin-top: 50px;
+	width: 160px;
+	height: 160px;
+	-webkit-border-radius: 3000px;
+	-moz-border-radius: 3000px;
+	border-radius: 3000px;
+	transition: background 1s;
+	-webkit-transition: background 1s;
+}
+
+	/*.section8 .teampic:hover {
+		background: url(../img/alexis.png) no-repeat center center;
+		transition: background 1s;
+		-webkit-transition: background 1s;
+	}*/
+
+	.section8 .sarah {
+		background: url(../img/sarah.png) no-repeat center center;
+	}
+
+	.section8 .elie {
+		background: url(../img/elie.png) no-repeat center center;
+	}
+
+	.section8 .jessica {
+		background: url(../img/jess.png) no-repeat center center;
+	}
+
+.section8 ul li ul {
+	margin-top: 50px;
+}
+
+.section8 ul li ul li {
+	font-size: 16px;
+	float: none;
+	margin-top: 5px;
+}
+
+.section8 ul li ul li.quotes {
+	font-style: italic;
+	margin-top: 30px;
+}
+
+.section9 {
+	background: url(../img/pattern.png) repeat;
+	text-align: center;
+	padding-bottom: 200px;
+	padding-top: 150px;
+}
+
+.section9 p {
+	margin: 0 auto;
+	width: 53%;
+}
+
+	.section9 p+p {
+		margin-top: 30px;
+	}
+
+
+
+/** MEDIAQUERIES **/
+
+@media screen and (max-width: 1100px) {
+
+
+
+	h2 {
+		font-weight: 300;
+	}
+
+
+	.content {
+		width:640px;
+	}
+
+
+	header h2 {
+		font-size: 26px;
+	}
+	
+	.section1 ul {
+		float: right;
+		padding: 15px 30px;
+		width: 260px;
+		margin-top: 0px;
+
+		margin-top: 640px;
+	}
+
+
+	.section1 ul:first-child {
+		float: left;
+		margin-right: 0px;
+		margin-top: 640px;
+	}
+
+		.section1 ul li {
+			margin-top: 20px;
+		}
+
+
+		.section1 ul li:first-child {
+			color: #3d3d3d;
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+
+	.section1 img { 
+		position: absolute;
+		top: 330px;
+		left: 50%;
+		margin-left: -130px;
+	}
+
+	.section1 h3 {
+		margin-bottom: 10px;
+	}
+
+	.section1 .start a {
+		font-weight: 300;
+	}
+
+	.section2 {
+		margin-top: 40px;
+	}
+
+	.section3 {
+		height: 450px;
+	}
+
+
+	.section3 .info {
+		float: left;
+		width: 334px;
+		margin-top: 70px;
+		padding: 0 30px;
+	}
+
+	.section3 .illu {
+		float: none;
+		margin-top: 60px;
+	}
+
+	.section3 .illu img {
+		float: right;
+	}
+		.section3 .illu img.iphone1 {
+			width: 33%;
+			padding-left: 30px;
+		}
+
+		.section3 .illu img.ecrans {
+			width: 29%;
+		}
+
+	.section3 .illu ul {
+		top: 141px;
+		left: 63px;
+	}
+
+	.section3 .info ol li {
+		font-weight: 300;
+	}
+
+
+	.section4 .illu2{
+		float: left;
+		margin-left: 0px
+	}
+
+		.section4 .illu2 img {
+			width: 220px;
+		}
+
+	.section4 .info2 {
+		float: right;
+		width: 366px;
+	}
+
+	.section5 h3 {
+		border: 2px solid #fff;
+		background: rgba(0,0,0,.25);
+		font-size: 40px;
+		color: #fff;
+		font-weight: 100;
+		position: relative;
+		top: 40%;
+		margin-top: 0px;
+		margin-left: 0px;
+		left:0px;
+		font-weight: 300;
+	}
+
+	.section6 {
+		padding: 50px 0;
+	}
+
+	.section6 .info3 {
+		width: 366px;
+	}
+
+	.section6 .info3.future {
+		margin-top: 0px!important;
+	}
+
+	.section6 img{
+		width: 220px;
+	}
+
+	.section6 img.iphone2 {
+		display: none;
+	}
+
+	footer h4 {
+		font-weight: 300;
+	}
+
+	footer p {
+		font-weight: 300;
+	}
+
+	footer nav .nameapp {
+		float: none;
+		margin-bottom: 20px;
+	}
+
+	footer nav ul {
+		float: none;
+		margin: 0 0 20px 0;
+	}
+
+		footer nav ul li {
+			float:  none;
+			margin-right: 0px;
+			margin-bottom: 10px;
+		}
+
+	footer .start a {
+		font-weight: 300;
+	}
+		
+
+}
+
+
+@media screen and (max-width: 340px) {
+
+	.content {
+		width: 280px;
+	}
+
+	.section1 ul:first-child {
+		float: none;
+		padding: 0;
+	}
+
+	.section1 ul {
+		float: none;
+		padding: 0px;
+		margin-top: 30px;
+	}
+
+	.section3 {
+		height: 800px;
+	}
+
+	.section3 .info {
+		float: none;
+		padding: 0px;
+	}
+
+	.section3 .illu img.iphone1 {
+		width: 100%;
+		padding-left: 0px;
+	}
+
+	.section3 .illu ul {
+		top: 150px;
+		left: -301px;
+	}
+
+	.section3 .illu img.ecrans {
+		width: 40%;
+	}
+
+	.section4 {
+		padding: 100px 0;
+	}
+	
+	.section4 .illu2{
+		display: none;
+	}
+
+	.section4 .illu3 {
+		display: block;
+	}
+
+		.section4 .illu3 img{
+			width: 280px;
+		}
+
+	.section4 .info2 {
+		float: right;
+		width: 266px;
+		margin-bottom: 100px;
+	}
+
+	.section6 {
+		padding: 10px 0;
+	}
+
+	.section6 .info3 {
+		width: 266px;
+		margin-top: 60px;
+	}
+
+	.section6 img {
+		width: 280px;
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+
+} 
