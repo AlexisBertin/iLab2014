@@ -1,19 +1,22 @@
 iLab2014
 ========
 
-- Présentation -
-Oweme is a smart easy-to-use expense manager. It will help you to keep track of who owes what.
+- Présentation <br />
+Oweme is a smart easy-to-use expense manager. It will help you to keep track of who owes what. <br />
 
 
-- Liens -
-Site: http://sarahbreemans.be/oweme/
-App: http://www.alexisbertin.fr/ilab/
-Vidéo: https://vimeo.com/87492359
-Slide: http://www.alexisbertin.fr/ilab/Oweme-presentation.key
+- Liens <br />
+Site: http://sarahbreemans.be/oweme/ <br />
+App: http://www.alexisbertin.fr/ilab/ <br />
+&nbsp; Login: admin <br />
+&nbsp; Pass: admin <br />
+
+Vidéo: https://vimeo.com/87492359 <br />
+Slide: http://www.alexisbertin.fr/ilab/Oweme-presentation.key <br />
 
 
-- Groupe -
-Alexis Bertin: @_alexisbertin
-Sarah Breemans: @SarahFrulala
-Jessica Meldon: @m_g6k
-Elie Ceciora: @ElieCeciora
+- Groupe <br />
+Alexis Bertin: @_alexisbertin <br />
+Sarah Breemans: @SarahFrulala <br />
+Jessica Meldon: @m_g6k <br />
+Elie Ceciora: @ElieCeciora <br />
