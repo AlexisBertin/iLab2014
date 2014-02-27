@@ -11,8 +11,8 @@ App: http://www.alexisbertin.fr/ilab/ <br />
 &nbsp; Login: admin <br />
 &nbsp; Pass: admin <br />
 
-Vidéo: https://vimeo.com/87492359 <br />
-Slide: http://www.alexisbertin.fr/ilab/Oweme-presentation.key <br />
+- Vidéo: https://vimeo.com/87492359 <br />
+- Slide: http://www.alexisbertin.fr/ilab/Oweme-presentation.key <br />
 
 
 - Groupe <br />
