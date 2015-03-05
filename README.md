@@ -6,13 +6,13 @@ Oweme is a smart easy-to-use expense manager. It will help you to keep track of 
 
 
 - Liens <br />
-Site: http://sarahbreemans.be/oweme/ <br />
-App: http://www.alexisbertin.fr/ilab/ <br />
+Site: http://www.alexisbertin.ovh/ilab/site/ <br />
+App: http://www.alexisbertin.ovh/ilab/ <br />
 &nbsp; Login: admin <br />
 &nbsp; Pass: admin <br />
 
 - Vidéo: https://vimeo.com/87492359 <br />
-- Slide: http://www.alexisbertin.fr/ilab/Oweme-presentation.key <br />
+- Slide: http://www.alexisbertin.ovh/ilab/Oweme-presentation.key <br />
 
 
 - Groupe <br />
